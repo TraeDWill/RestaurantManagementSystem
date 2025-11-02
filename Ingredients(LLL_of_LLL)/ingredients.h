@@ -14,7 +14,10 @@ class ingredient{
             amt_in_lbs = amount;
             next = nullptr;
         }
-        add_ingredient(char * name, int amount, date today);
+        int display();
+        int next(ingredient *& temp);
+        int name_cmp(char * name);
+        void connect(ingredient *& temp);
     private:
         char * ing_name;
         int * amt_in_lbs;
@@ -29,12 +32,15 @@ class category{
             ing_amount = 0;
             head = nullptr;
         }
-        int add_category(char * type);
-        int remove_category(char * type);
-        int display_category(char * type);
-        int type_count();
+        int add_ingredient();
+        int remove_ingredient(char * ing);
+        int find_ingredient(char * ing);
+        int disp_all_ing();
+        int next(category *& temp);
+
     private:
         char * type;
         int ing_amount;
+        category * next;
         ingredient * head;
 };
