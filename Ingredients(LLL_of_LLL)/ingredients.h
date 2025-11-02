@@ -18,9 +18,11 @@ class ingredient{
         int next(ingredient *& temp);
         int name_cmp(char * name);
         void connect(ingredient *& temp);
+        int add(int add);
+        void remove();
     private:
         char * ing_name;
-        int * amt_in_lbs;
+        int amt_in_lbs;
         ingredient * next;
 }
 

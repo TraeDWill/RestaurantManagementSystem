@@ -23,8 +23,17 @@
         return 0;
     }
 
-    void ingredient::connect(node *& temp){
+    void ingredient::connect(ingredient *& temp){
         next = temp;
+    }
+
+    int ingredient::add(int add){
+        amt_in_lbs += add;
+        return amt_in_lbs;
+    }
+
+    void ingredient::remove(){
+        delete ing_name;
     }
 
     int category::add_ingredient(){
@@ -53,15 +62,58 @@
             if(!temp){
                 temp = new ingredient(name, amt);
             }
-            else{
+            else if(result == 1){
                 insert = new ingredient(name, amt);
                 trail->connect(insert);
                 insert->connect(temp);
+            }
+            else{
+                cout << "New amount is:" << temp->add(amt) << endl;
             }
         }
         return 1;
     }
 
-    int category::remove_ingredient(char * ing);
-    int category::find_ingredient(char * ing);
-    int category::disp_all_ing();
+    int category::remove_ingredient(char * ing){
+        ingredient * temp = head;
+        ingredient * trail;
+        ingredient * lead;
+        if(!head){
+            return 0;
+        }
+        while(temp && temp->name_comp(ing) != 0){
+            trail = temp;
+            temp->next(temp);
+        }
+        if(!temp){
+            return 0;
+        }
+        temp->next(lead);
+        temp->remove();
+        delete temp;
+        trail->connect(lead);
+        return 1;
+    }
+    int category::find_ingredient(char * ing){
+        ingredient * temp = head;
+
+        while(temp && temp->name_comp(ing) != 0){
+            temp->next(temp);
+        }
+        if(temp){
+            temp.display();
+            return 1;
+        }
+        return 0;
+    }
+    int category::disp_all_ing(){
+        ingredient * temp = head;
+        if(!temp){
+            return 0;
+        }
+        while(temp){
+            temp.display();
+            temp->next(temp);
+        }
+        return 1;
+    }
