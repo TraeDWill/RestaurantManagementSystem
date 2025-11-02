@@ -1,5 +1,5 @@
 # RestaurantManagementSystem
-I'm using this to practice my C++ fundamentals
+I'm using this to practice my C++ fundamentals and Data Structures
 
 Contacts:
 - Hash Table
@@ -9,3 +9,5 @@ Ingredient Inventory:
 - LLL of LLL
 - Using types of ingredients as the original LLL and then seperate ingredients in each category of type.
 
+System:
+- Root for all of the data structures
