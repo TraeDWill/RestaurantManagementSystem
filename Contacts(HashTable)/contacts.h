@@ -13,24 +13,27 @@ class Contact{
             phone = c_phone;
         }
         int comp_name(string c_name);
+
     private:
         string name;
         long phone;
 
-}
+};
 
 class ContactNode{
     public:
-        ContactNode(){
+        ContactNode(string c_name, long c_phone): local(c_name, c_phone)
+        {
             next = nullptr;
         }
         int insert(string c_name, long c_phone);
         int remove(string c_name);
         int display(string c_name);
+        ContactNode * MoveNext();
     private:
         Contact local;
         ContactNode * next;
-}
+};
 
 class ContactList{
     public:
@@ -40,5 +43,4 @@ class ContactList{
         int hash_function(string c_name);
     private:
         ContactNode; * list[TABLE_SIZE];
-
-}
+};
