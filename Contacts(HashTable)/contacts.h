@@ -13,6 +13,7 @@ class Contact{
             phone = c_phone;
         }
         int comp_name(string c_name);
+        void display();
 
     private:
         string name;
@@ -26,10 +27,9 @@ class ContactNode{
         {
             next = nullptr;
         }
-        int insert(string c_name, long c_phone);
-        int remove(string c_name);
-        int display(string c_name);
+        void display();
         ContactNode * MoveNext();
+        int comp_name(string c_name);
     private:
         Contact local;
         ContactNode * next;

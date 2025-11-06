@@ -6,16 +6,23 @@
         return 0;
     }
 
-    ContactNode * MoveNext(){
+    void ContactNode::display(){
+        cout << "Contact Name:" << name << endl;
+        cout << "Contact Number:" << phone << endl;
+    }
+
+    ContactNode * ContactNode::MoveNext(){
         return next;
     }
 
-    int ContactNode::insert(string c_name, long c_phone){
-
-
+    void ContactNode::display(){
+        list.display();
     }
-    int ContactNode::remove(string c_name);
-    int ContactNode::display(string c_name);
+
+    int comp_name(string c_name){
+        return list.comp_name(c_name);
+    }
+
     int ContactList::add_contact(string c_name, long c_phone){
         ContactNode * temp = nullptr;
         ContactNode * curr = nullptr;
@@ -38,7 +45,23 @@
 
     }
     int ContactList::remove_contact(string c_name){
+        ContactNode * temp = nullptr;
+        ContactNode * curr = nullptr;
+        int key = hash_function(c_name);
+        
+        temp = list[key];
 
+        while(temp && temp->comp_name(c_name) == 0){
+            curr = temp;
+            temp = temp->MoveNext();
+        }
+
+        if(temp){
+            if(!temp->MoveNext()){
+                delete temp;
+                temp = 
+            }
+        }
     }
     int ContactList::display_contact(string c_name){
 
