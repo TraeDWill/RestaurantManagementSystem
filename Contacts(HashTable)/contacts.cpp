@@ -15,6 +15,10 @@
         return next;
     }
 
+    void set_next(ContactNode * temp){
+        next = temp;
+    }
+
     void ContactNode::display(){
         list.display();
     }
@@ -47,6 +51,7 @@
     int ContactList::remove_contact(string c_name){
         ContactNode * temp = nullptr;
         ContactNode * curr = nullptr;
+        ContactNode * add = nullptr;
         int key = hash_function(c_name);
         
         temp = list[key];
@@ -59,9 +64,18 @@
         if(temp){
             if(!temp->MoveNext()){
                 delete temp;
-                temp = 
+                temp = nullptr;
             }
+            else{
+                add = temp->MoveNext();
+                curr->set_next(add);
+                delete temp;
+                temp = nullptr;
+
+            }
+            return 1;
         }
+        return 0;
     }
     int ContactList::display_contact(string c_name){
 

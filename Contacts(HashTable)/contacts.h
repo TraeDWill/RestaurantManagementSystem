@@ -30,6 +30,7 @@ class ContactNode{
         void display();
         ContactNode * MoveNext();
         int comp_name(string c_name);
+        void set_next(ContactNode * temp);
     private:
         Contact local;
         ContactNode * next;
