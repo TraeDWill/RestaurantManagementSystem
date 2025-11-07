@@ -11,3 +11,12 @@ Ingredient Inventory:
 
 System:
 - Root for all of the data structures
+
+Queue:
+- Orders
+
+Stack: 
+- Maintenance concerns
+
+BST:
+- Keep order of payments
