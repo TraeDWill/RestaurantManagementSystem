@@ -6,7 +6,7 @@
         return 0;
     }
 
-    void ContactNode::display(){
+    void Contact::display(){
         cout << "Contact Name:" << name << endl;
         cout << "Contact Number:" << phone << endl;
     }
@@ -15,7 +15,7 @@
         return next;
     }
 
-    void set_next(ContactNode * temp){
+    void ContactNode::set_next(ContactNode * temp){
         next = temp;
     }
 
@@ -23,7 +23,7 @@
         list.display();
     }
 
-    int comp_name(string c_name){
+    int ContactNode::comp_name(string c_name){
         return list.comp_name(c_name);
     }
 
