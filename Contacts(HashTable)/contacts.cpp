@@ -78,7 +78,20 @@
         return 0;
     }
     void ContactList::display_contact(string c_name){
-        local.display();
+        int key = hash_function(c_name);
+        ContactNode * temp = nullptr;
+
+        temp = list[key];
+
+        while(temp && temp->comp_name(c_name) != 1){
+            temp = temp->MoveNext();
+        }
+        if(temp){
+            temp.display();
+        }
+        else{
+            cout << "No such contact." << endl;
+        }
 
     }
     int ContactList::hash_function(string c_name){
