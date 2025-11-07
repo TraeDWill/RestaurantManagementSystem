@@ -40,7 +40,7 @@ class ContactList{
     public:
         int add_contact(string c_name, long c_phone);
         int remove_contact(string c_name);
-        int display_contact(string c_name);
+        void display_contact(string c_name);
         int hash_function(string c_name);
     private:
         ContactNode; * list[TABLE_SIZE];

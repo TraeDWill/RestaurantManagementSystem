@@ -77,7 +77,8 @@
         }
         return 0;
     }
-    int ContactList::display_contact(string c_name){
+    void ContactList::display_contact(string c_name){
+        local.display();
 
     }
     int ContactList::hash_function(string c_name){
