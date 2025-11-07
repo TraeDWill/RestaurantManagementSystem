@@ -33,5 +33,5 @@ class AllOrders{
         int dequeue(string item, float amt);
         int display_all();
     private:
-    OrderNode * tail;
+        OrderNode * tail;
 }
