@@ -61,4 +61,17 @@ int AllOrders::dequeue(string item, float amt){
     return 1;
     
 }
-int AllOrders::display_all();
+void AllOrders::display_all(){
+    OrderNode * temp = tail->GetNext();
+    OrderNode * curr = temp;
+    if(!tail){
+        cout << "No Orders Currently" << endl;
+    }
+    else{
+        while(temp->GetNext() != curr){
+            temp.display();
+            temp = temp.GetNext();
+        }
+    }
+
+}
