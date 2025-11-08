@@ -1,39 +1,64 @@
 #include "orders.h"
-        void Order::display(){
-            cout << "Item: " << FoodItem << endl;
-            cout << "Price: " << Price << endl;
-        }
 
-        OrderNode * OrderNode::GetNext(){
-            return next;
-        }
+void Order::display(){
+    cout << "Item: " << FoodItem << endl;
+    cout << "Price: " << Price << endl;
+}
 
-        void OrderNode::SetNext(OrderNode * temp){
-            next = temp;
-        }
+OrderNode * OrderNode::GetNext(){
+    return next;
+}
 
-        void OrderNode::display(){
-            stuff.display();
-        }
+void OrderNode::SetNext(OrderNode * temp){
+    next = temp;
+}
 
-        int AllOrders::enqueue(string item, float amt){
-            OrderNode * temp = new Ordernode(item, amt);
-            OrderNode * curr = nullptr;
+void OrderNode::display(){
+    stuff.display();
+}
 
-            if(!tail){
-                tail = temp;
-                tail->set_next(tail);
-            }
-            else{
-                curr = tail.GetNext();
-                tail->SetNext(temp);
-                temp->SetNext(curr);
-            }
+int AllOrders::enqueue(string item, float amt){
+    OrderNode * temp = new Ordernode(item, amt);
+    OrderNode * curr = nullptr;
 
-            return 1;
-        }
+    if(!tail){
+        tail = temp;
+        tail->set_next(tail);
+    }
+    else{
+        curr = tail.GetNext();
+        tail->SetNext(temp);
+        temp->SetNext(curr);
+    }
 
-        OrderNode * AllOrders::dequeue(string item, float amt){
-            
-        }
-        int AllOrders::display_all();
+    return 1;
+}
+
+int AllOrders::dequeue(string item, float amt){
+    OrderNode * temp = nullptr;
+    Ordernode * curr = nullptr; 
+
+    if(!tail){
+        return nullptr;
+    }
+    if(tail->GetNext() == this->tail){
+        delete tail;
+        tail = nullptr;
+    }
+    
+    temp = tail->GetNext();
+    curr = temp;
+    
+    while(temp->GetNext() != tail){
+        temp = temp->GetNext();
+    }
+
+    temp->SetNext(curr);
+    tail.display();
+    delete tail;
+    tail = temp;
+
+    return 1;
+    
+}
+int AllOrders::display_all();

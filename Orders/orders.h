@@ -10,7 +10,7 @@ class Order{
             FoodItem = item;
             Price = amt;
         }
-
+        void display();
     private:
         string FoodItem;
         float Price;
@@ -22,8 +22,10 @@ class OrderNode{
             next = nullptr;
         }
         ContactNode * GetNext();
-        ContactNode * SetNext();
+        void SetNext(ContactNode * temp);
+        void display();
     private:
+        Order stuff;
         OrderNode * next;
 }
 
