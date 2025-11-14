@@ -17,6 +17,8 @@ class RequestNode{
         RequestNode(){
             next = nullptr;
         }
+        int SetNext(RequestNode * temp);
+        RequestNode * GetNext();
     private:
         RequestNode * next;
 }
