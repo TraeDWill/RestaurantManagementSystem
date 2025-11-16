@@ -40,6 +40,7 @@ class category{
         int disp_all_ing();
         int next(category *& temp);
         category * GetNext();
+        void end();
 
     private:
         char * type;

@@ -133,6 +133,20 @@ int category::comp(char * cat){
     return strcmp(cat, type);
 }
 
+void category::end(){
+    ingredient * temp = nullptr;
+
+    delete type;
+
+    if(head){
+        while(head){
+            temp = head->GetNext();
+            head.remove();
+            delete head;
+            head = temp;
+        }    
+    }
+}
 int inventory::add_category(){
     char cat[50];
     char * cat_name = nullptr;
@@ -164,6 +178,7 @@ int inventory::remove_category(){
     char * cat_name = nullptr;
     category * temp = nullptr;
     category * curr = nullptr;
+    category * last = nullptr;
 
     cout << "What is the name of the category you'd like to remove?" << endl;
     cin.get(cat, 50, '\n');
@@ -177,10 +192,26 @@ int inventory::remove_category(){
     else{
         temp = head;
         while(temp && (temp.comp(cat) != 0)){
+            curr = temp;
             temp = temp->GetNext();
         }
         if(temp){
-            
+            if(!temp->GetNext()){
+                temp.end();
+                delete temp;
+                temp = nullptr;
+                curr->next(temp);
+                return 1;
+            }
+            else{
+                last = temp->GetNext();
+                curr->next(last);
+                temp.end();
+                temp = nullptr;
+                return 1;
+            }
         }
+        return 0;
+        
     }
 }
