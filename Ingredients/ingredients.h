@@ -39,6 +39,7 @@ class category{
         int find_ingredient(char * ing);
         int disp_all_ing();
         int next(category *& temp);
+        category * GetNext();
 
     private:
         char * type;
@@ -46,3 +47,15 @@ class category{
         category * next;
         ingredient * head;
 };
+
+class inventory{
+    public:
+        inventory(){
+            head = nullptr;
+        }
+        int add_category();
+        int remove_category();
+        void display_all();
+    private: 
+        category * head;
+}
