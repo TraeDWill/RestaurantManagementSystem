@@ -4,13 +4,16 @@
 #include "Ingredients/ingredients.h"
 #include "Contacts/contacts.h"
 #include "Orders/orders.h"
+#include "Maintenance/mnt.h"
 
 using namespace std;
 
 class System{
     public:
+        
     private:
         ContactList contacts;
         category stock;
         AllOrders orders;
+        Mnt mnt;
 };

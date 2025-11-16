@@ -38,10 +38,15 @@ class ContactNode{
 
 class ContactList{
     public:
+        ContactList(){
+            for(int i = 0; i < TABLE_SIZE; ++i){
+                list[i] = nullptr;
+            }
+        }
         int add_contact(string c_name, long c_phone);
         int remove_contact(string c_name);
         void display_contact(string c_name);
         int hash_function(string c_name);
     private:
-        ContactNode; * list[TABLE_SIZE];
+        ContactNode * list[TABLE_SIZE];
 };
