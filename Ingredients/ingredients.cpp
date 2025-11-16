@@ -129,6 +129,10 @@ int category::next(category *& temp){
     return 1;
 }
 
+int category::comp(char * cat){
+    return strcmp(cat, type);
+}
+
 int inventory::add_category(){
     char cat[50];
     char * cat_name = nullptr;
@@ -155,3 +159,28 @@ int inventory::add_category(){
 
 }
 
+int inventory::remove_category(){
+    char cat[50];
+    char * cat_name = nullptr;
+    category * temp = nullptr;
+    category * curr = nullptr;
+
+    cout << "What is the name of the category you'd like to remove?" << endl;
+    cin.get(cat, 50, '\n');
+
+    cat_name = new char[strlen(cat)+1];
+    strcpy(cat_name, cat);
+
+    if(!head){
+        return 0;
+    }
+    else{
+        temp = head;
+        while(temp && (temp.comp(cat) != 0)){
+            temp = temp->GetNext();
+        }
+        if(temp){
+            
+        }
+    }
+}
