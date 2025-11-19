@@ -102,8 +102,40 @@
 
     }
 
-    void Allorders::menu(){
-        string item;
-        float amt;
+    void ContactList::menu(){
+        string c_name;
+        long c_phone;
+        int choice;
         
+        cout << "Would you like to:" << endl;
+        cout << "1. Add contact" << endl;
+        cout << "2. Remove a contact" << endl;
+        cout << "3. Display a contact" << endl;
+        cout << "4. End Menu" << endl;
+
+        while(choice != 4){
+            switch(choice){
+                case 1:
+                    cout << "Which contact would you like to add?" << endl;
+                    cin.get(c_name, 1234, '\n');
+                    cout << "What is the phone number?" << endl;
+                    cin >> c_phone;
+
+                    add_contact(c_name, c_phone);
+                case 2:
+                    cout << "Which contact would you like to remove?" << endl;
+                    cin.get(c_name, 1234, '\n');
+
+                    dequeue(c_name);
+                case 3:
+                    cout << "Which contact would you like to display?" << endl;
+                    cin.get(c_name, 1234, '\n');
+
+                    display_contact(c_name);
+                case 4:
+                    cout << "Exiting Menu" << endl;
+                default:
+                    cout << "Incorrect Choice" << endl;
+            }
+        }
     }
