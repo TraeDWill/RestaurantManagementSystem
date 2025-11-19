@@ -215,3 +215,49 @@ int inventory::remove_category(){
         
     }
 }
+
+int add_ingredient(){
+
+}
+
+int remove_ingredient(){
+
+}
+
+void display_all_ingredients(){
+    
+}
+
+void inventory::menu(){
+    int choice = 0;
+
+    cout << "Would you like to:" << endl;
+    cout << "1. Add a category" << endl;
+    cout << "2. Remove a Category" << endl;
+    cout << "3. Display all categories" << endl;
+    cout << "4. Add Ingredient" << endl;
+    cout << "5. Remove Ingredient" << endl;
+    cout << "6. Display all ingredients in a cerain category" << endl;
+    cout << "7. Exit Menu" << endl;
+
+    while(choice != 7){
+        switch(choice){
+            case 1: 
+                add_category();
+            case 2:
+                remove_category();
+            case 3:
+                dispaly_all();
+            case 4:
+                add_ingredient();
+            case 5: 
+                remove_ingredient();
+            case 6:
+                display_all_ingredients();
+            case 7:
+                cout << "Exiting inventory menu" << endl;
+        }
+    }
+
+    
+}

@@ -12,7 +12,7 @@ void System::menu(){
 
     switch(choice):
         case 1:
-            
+            contacts.menu();
         case 2:
         case 3:
         case 4:
