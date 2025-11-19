@@ -37,6 +37,7 @@ class AllOrders{
         int enqueue(string item, float amt);
         int dequeue(string item, float amt);
         int display_all();
+        void menu();
     private:
         OrderNode * tail;
 }

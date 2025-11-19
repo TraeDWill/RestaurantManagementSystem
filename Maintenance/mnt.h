@@ -39,6 +39,7 @@ class Mnt{
         int push(int z, string t);
         int pop();
         void display();
+        void menu();
     private:
         RequestNode * head;
         int spot;

@@ -57,6 +57,7 @@ class inventory{
         int add_category();
         int remove_category();
         void display_all();
+        void menu();
     private: 
         category * head;
 }

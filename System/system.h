@@ -10,7 +10,8 @@ using namespace std;
 
 class System{
     public:
-        System() : AllOrders(), category(char * t_name)
+        System() : AllOrders(), inventory(), Mnt(), ContactList(){};\
+        void menu();
     private:
         ContactList contacts;
         category stock;

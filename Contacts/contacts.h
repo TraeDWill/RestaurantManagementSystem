@@ -43,6 +43,7 @@ class ContactList{
                 list[i] = nullptr;
             }
         }
+        void menu();
         int add_contact(string c_name, long c_phone);
         int remove_contact(string c_name);
         void display_contact(string c_name);

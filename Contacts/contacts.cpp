@@ -101,3 +101,9 @@
             return hash;
 
     }
+
+    void Allorders::menu(){
+        string item;
+        float amt;
+        
+    }
