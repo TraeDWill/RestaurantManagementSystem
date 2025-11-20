@@ -261,3 +261,20 @@ void inventory::menu(){
 
     
 }
+
+int inventory::add_ingredient(){
+    char temp[50];
+    char curr[50];
+    char * cat = nullptr;
+    char * ing = nullptr;
+
+    cout << "What is the type of category you'd like to add the ingredient to?" << endl;
+    cin.get(temp, 1234, '\n');
+
+    cat = new char(strlen(temp) + 1);
+    strcpy(cat, temp);
+
+    count << "What is the name of the ingredient?" << endl;
+    cin.get(curr, 1234, '\n');
+
+}

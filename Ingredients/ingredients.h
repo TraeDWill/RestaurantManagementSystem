@@ -20,6 +20,7 @@ class ingredient{
         void connect(ingredient *& temp);
         int add(int add);
         void remove();
+        
     private:
         char * ing_name;
         int amt_in_lbs;
@@ -61,6 +62,7 @@ class inventory{
         int remove_ingredient();
         void display_all_ingredients();
         void menu();
+
     private: 
         category * head;
 }
