@@ -35,7 +35,7 @@ class category{
             ing_amount = 0;
             head = nullptr;
         }
-        int add_ingredient(char * name, int amt);
+        int add_ingredient(char * name);
         int remove_ingredient(char * ing);
         int find_ingredient(char * ing);
         int disp_all_ing();

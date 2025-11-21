@@ -38,10 +38,12 @@ void ingredient::remove(){
 
 int category::add_ingredient(char * name, int amt){       
     int result = 0;
+    int amt = 0;
     node * temp = nullptr;
     node * trail = nullptr;
     node * insert = nullptr;
     
+    cout << "How many lbs(in whole numbers) rounded to the lower number is there of this item?" << endl;
 
     if(!head){
         head = new ingredient(name, amt);
@@ -249,7 +251,13 @@ int inventory::add_ingredient(){
     while(find && find->tcmp(cat) != 0){
         find = find.GetNext();
     }
-    
+
+    if(!find){
+        cout << "Category not found" << endl;
+        return 0;
+    }
+    find.add_ingredient(ing);
+    return 1;
 
 }
 
