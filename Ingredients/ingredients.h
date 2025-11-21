@@ -35,13 +35,14 @@ class category{
             ing_amount = 0;
             head = nullptr;
         }
-        int add_ingredient();
+        int add_ingredient(char * name, int amt);
         int remove_ingredient(char * ing);
         int find_ingredient(char * ing);
         int disp_all_ing();
         int next(category *& temp);
         category * GetNext();
         void end();
+        int tcomp(char * t);
 
     private:
         char * type;

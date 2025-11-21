@@ -36,18 +36,12 @@ void ingredient::remove(){
     delete ing_name;
 }
 
-int category::add_ingredient(){
-    char * name;
-    int amt = 0;       
+int category::add_ingredient(char * name, int amt){       
     int result = 0;
     node * temp = nullptr;
     node * trail = nullptr;
     node * insert = nullptr;
     
-    cout << "What is the name of the ingredient?" << endl;
-    cin.get(name, 20, '\n');
-    cout << "How many pounds of it do we have?" << endl;
-    cin >> amt;
 
     if(!head){
         head = new ingredient(name, amt);
@@ -147,6 +141,11 @@ void category::end(){
         }    
     }
 }
+
+int tcomp(char * t){
+    return strcmp(t, type);
+}
+
 int inventory::add_category(){
     char cat[50];
     char * cat_name = nullptr;
@@ -228,6 +227,32 @@ void display_all_ingredients(){
     
 }
 
+int inventory::add_ingredient(){
+    char temp[50];
+    char curr[50];
+    char * cat = nullptr;
+    char * ing = nullptr;
+    category * find = head;
+
+    cout << "What is the type of category you'd like to add the ingredient to?" << endl;
+    cin.get(temp, 1234, '\n');
+
+    cat = new char(strlen(temp) + 1);
+    strcpy(cat, temp);
+
+    count << "What is the name of the ingredient?" << endl;
+    cin.get(curr, 1234, '\n');
+
+    ing = new char[strlen(curr) + 1];
+    strcpy(ing, curr);
+
+    while(find && find->tcmp(cat) != 0){
+        find = find.GetNext();
+    }
+    
+
+}
+
 void inventory::menu(){
     int choice = 0;
 
@@ -262,19 +287,3 @@ void inventory::menu(){
     
 }
 
-int inventory::add_ingredient(){
-    char temp[50];
-    char curr[50];
-    char * cat = nullptr;
-    char * ing = nullptr;
-
-    cout << "What is the type of category you'd like to add the ingredient to?" << endl;
-    cin.get(temp, 1234, '\n');
-
-    cat = new char(strlen(temp) + 1);
-    strcpy(cat, temp);
-
-    count << "What is the name of the ingredient?" << endl;
-    cin.get(curr, 1234, '\n');
-
-}
