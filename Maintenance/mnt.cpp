@@ -55,3 +55,32 @@ int pop(){
 void Mnt::display(){
     head->display();
 }
+
+void Mnt::menu(){
+    int choice = 0;
+    int z = 0;
+    string t = "";
+
+    while(choice != 4){
+        switch(choice){
+            case 1: 
+                cout << "What zone is it?" << endl;
+                cin >> z;
+                cin.ignore(1234, '\n');
+                cout << "What is the issue in 100 char or less?" << endl;
+                cin.get(t, 100, '\n');
+                cin.ignore(1234, '\n');
+                push(z, t);
+            case 2:
+                pop();
+            case 3:
+                display();
+            case 4:
+                cout << "Exiting Maintenance Menu" << endl;
+            default:
+                cout << "Incorrect Choice" << endl;
+                
+        }
+        
+    }
+}

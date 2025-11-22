@@ -9,6 +9,7 @@ void System::menu(){
     cout << "2.Inventory" << endl;
     cout << "3.Orders" << endl;
     cout << "4.Maintenance Requests" << endl;
+    cout << "5. Exit System" << endl;
 
     switch(choice):
         case 1:
@@ -18,5 +19,9 @@ void System::menu(){
         case 3:
             orders.menu();
         case 4:
+            mnt.menu();
+        case 5:
+            Cout << "Exiting R.M.S. Have a phenomenal day!" << endl; 
         default:
+            cout << "Incorrect Choice" << endl;
 }
