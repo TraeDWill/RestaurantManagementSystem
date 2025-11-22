@@ -75,3 +75,18 @@ void AllOrders::display_all(){
     }
 
 }
+
+void AllOrders::menu(){
+    int choice = 0;
+
+    while(choice != 4){
+        cout << "Here are your choices:" << endl;
+        cout << "1. Add Order" << endl;
+        cout << "2. Remove Order" << endl;
+        cout << "3. Display All Orders" << endl;
+        cout << "4. Exit to menu" << endl;
+
+        cin >> choice;
+        cin.ignore(1234, '\n');
+    }
+}

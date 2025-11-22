@@ -118,18 +118,22 @@
                 case 1:
                     cout << "Which contact would you like to add?" << endl;
                     cin.get(c_name, 1234, '\n');
+                    cin.ignore(1234, '\n');
                     cout << "What is the phone number?" << endl;
                     cin >> c_phone;
+                    cin.ignore(1234, '\n');
 
                     add_contact(c_name, c_phone);
                 case 2:
                     cout << "Which contact would you like to remove?" << endl;
-                    cin.get(c_name, 1234, '\n');
+                    cin.get(c_name, 50, '\n');
+                    cin.ignore(1234, '\n');
 
                     dequeue(c_name);
                 case 3:
                     cout << "Which contact would you like to display?" << endl;
-                    cin.get(c_name, 1234, '\n');
+                    cin.get(c_name, 50, '\n');
+                    cin.ignore(1234, '\n');
 
                     display_contact(c_name);
                 case 4:

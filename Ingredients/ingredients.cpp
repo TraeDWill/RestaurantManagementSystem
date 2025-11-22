@@ -156,6 +156,7 @@ int inventory::add_category(){
 
     cout << "What is the name of the category you'd like to add?" << endl;
     cin.get(cat, 50, '\n');
+    cin.ignore(1234, '\n');
 
     cat_name = new char[strlen(cat)+1];
     strcpy(cat_name, cat);
@@ -183,6 +184,7 @@ int inventory::remove_category(){
 
     cout << "What is the name of the category you'd like to remove?" << endl;
     cin.get(cat, 50, '\n');
+    cin.ignore(1234, '\n');
 
     cat_name = new char[strlen(cat)+1];
     strcpy(cat_name, cat);
@@ -237,13 +239,16 @@ int inventory::add_ingredient(){
     category * find = head;
 
     cout << "What is the type of category you'd like to add the ingredient to?" << endl;
-    cin.get(temp, 1234, '\n');
+    cin.get(temp, 50, '\n');
+    cin.ignore(1234, '\n');
+
 
     cat = new char(strlen(temp) + 1);
     strcpy(cat, temp);
 
     count << "What is the name of the ingredient?" << endl;
-    cin.get(curr, 1234, '\n');
+    cin.get(curr, 50, '\n');
+    cin.ignore(1234, '\n');
 
     ing = new char[strlen(curr) + 1];
     strcpy(ing, curr);

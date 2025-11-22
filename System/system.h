@@ -14,7 +14,7 @@ class System{
         void menu();
     private:
         ContactList contacts;
-        category stock;
+        inventory stock;
         AllOrders orders;
         Mnt mnt;
 };

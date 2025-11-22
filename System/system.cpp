@@ -14,7 +14,9 @@ void System::menu(){
         case 1:
             contacts.menu();
         case 2:
+            stock.menu();
         case 3:
+            orders.menu();
         case 4:
         default:
 }
