@@ -44,3 +44,19 @@ int Payment::Update(){
     }
 
 }
+
+P_Node * P_Node::GetRight(){
+    return right;
+}
+
+P_Node * P_Node::GetLeft(){
+    return left;
+}
+
+void SetLeft(P_Node * temp){
+    left = temp;
+}
+
+void SetRight(P_Node * temp){
+    right = temp;
+}

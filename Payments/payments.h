@@ -22,8 +22,8 @@ class P_Node{
         }
         P_Node * GetRight();
         P_Node * GetLeft();
-        int SetLeft();
-        int SetRight();
+        void SetLeft(P_Node * temp);
+        void SetRight(P_Node * tmep);
     private:
         P_Node * left;
         p_Node * right;
