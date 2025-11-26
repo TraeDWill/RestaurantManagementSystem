@@ -26,6 +26,7 @@ class P_Node{
         void SetLeft(P_Node * temp);
         void SetRight(P_Node * tmep);
         int compare(float a);
+        int match(string i);
     private:
         P_Node * left;
         p_Node * right;

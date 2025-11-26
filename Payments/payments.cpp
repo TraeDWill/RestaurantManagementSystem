@@ -49,7 +49,10 @@ int Payment::compare(float a){
     if(amt > a){
         return 0; 
     }
-    return 1;
+    if(amt < a){
+        return 1;
+    }
+    return 2;
 }
 
 P_Node * P_Node::GetRight(){
@@ -118,5 +121,17 @@ int Economy::remove(){
 }
 
 int Economy::remove(P_Node * temp, float a, string i){
+    if(temp->compare(a) == 2){
+        if(temp->match(i) == 0){
+
+        }
+        else{
+            return remove(temp->GetRight(), a, i);
+        }
+    }
+    if(temp->compare(a) == 0){
+        return remove(temp->GetLeft(), a, i);
+    }
+    return remove(temp->GetRight(), a, i);
 
 }
