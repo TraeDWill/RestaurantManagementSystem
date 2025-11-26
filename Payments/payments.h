@@ -38,6 +38,7 @@ class Economy{
             root = nullptr;
         }
         int insert();
+        int insert(P_Node * temp, float a, string i)
         int remove();
         void display_all();
     private:

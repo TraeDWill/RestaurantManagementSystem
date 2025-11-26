@@ -96,6 +96,6 @@ int Economy::insert(P_Node * temp, float a, string i){
     if(temp->compare(a) == 0){
         return insert(temp->GetLeft(), a, i);
     }
-    return insert(temp->GetLeft(), a, i);
+    return insert(temp->GetRight(), a, i);
 
 }
