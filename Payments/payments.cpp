@@ -99,3 +99,24 @@ int Economy::insert(P_Node * temp, float a, string i){
     return insert(temp->GetRight(), a, i);
 
 }
+
+int Economy::remove(){
+
+    float a = 0;
+    string i = "";
+    P_Node * temp = root;
+
+    cout << "How much did the order cost?" << endl;
+    cin >> a;
+    cin.ignore(1234, '\n');
+
+    cout << "What was the name of the item ordered?" << endl;
+    cin.get(i, 50, '\n');
+    cin.ignore(1234, '\n');
+
+    return remove(temp, a, i);
+}
+
+int Economy::remove(P_Node * temp, float a, string i){
+
+}
