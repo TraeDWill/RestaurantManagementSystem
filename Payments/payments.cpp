@@ -73,5 +73,29 @@ int P_Node::compare(float a){
 }
 
 int Economy::insert(){
+    float a = 0;
+    string i = "";
+    P_Node * temp = root;
+
+    cout << "How much did the order cost?" << endl;
+    cin >> a;
+    cin.ignore(1234, '\n');
+
+    cout << "What was the name of the item ordered?" << endl;
+    cin.get(i, 50, '\n');
+    cin.ignore(1234, '\n');
+    
+    return insert(temp, a, i);
+}
+
+int Economy::insert(P_Node * temp, float a, string i){
+    if(!root){
+        root = new P_Node(a, i);
+        return 1;
+    }
+    if(temp->compare(a) == 0){
+        return insert(temp->GetLeft(), a, i);
+    }
+    return insert(temp->GetLeft(), a, i);
 
 }
