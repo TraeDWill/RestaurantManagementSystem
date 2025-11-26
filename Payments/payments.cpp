@@ -45,6 +45,13 @@ int Payment::Update(){
 
 }
 
+int Payment::compare(float a){
+    if(amt > a){
+        return 0; 
+    }
+    return 1;
+}
+
 P_Node * P_Node::GetRight(){
     return right;
 }
@@ -59,4 +66,12 @@ void SetLeft(P_Node * temp){
 
 void SetRight(P_Node * temp){
     right = temp;
+}
+
+int P_Node::compare(float a){
+    return pay.compare(a);
+}
+
+int Economy::insert(){
+
 }

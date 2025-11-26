@@ -9,6 +9,7 @@ class Payment{
             item = i;
         }
         int Update();
+        int compare(float a);
     private:
         float amt;
         string item;
@@ -24,6 +25,7 @@ class P_Node{
         P_Node * GetLeft();
         void SetLeft(P_Node * temp);
         void SetRight(P_Node * tmep);
+        int compare(float a);
     private:
         P_Node * left;
         p_Node * right;
@@ -38,7 +40,6 @@ class Economy{
         int insert();
         int remove();
         void display_all();
-
     private:
         P_Node * root;
 }
