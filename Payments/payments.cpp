@@ -45,6 +45,10 @@ int Payment::Update(){
 
 }
 
+void Payment::price(float a){
+    amt = a;
+}
+
 int Payment::compare(float a){
     if(amt > a){
         return 0; 
@@ -53,6 +57,10 @@ int Payment::compare(float a){
         return 1;
     }
     return 2;
+}
+
+void P_Node::price(float a){
+    pay.price(a);
 }
 
 P_Node * P_Node::GetRight(){
@@ -123,7 +131,17 @@ int Economy::remove(){
 int Economy::remove(P_Node * temp, float a, string i){
     if(temp->compare(a) == 2){
         if(temp->match(i) == 0){
-
+            if(temp->GetRight() && temp->GetLeft()){
+                delete temp;
+                temp = nullptr;
+            }
+            else if(temp->GetRight() && temp->GetLeft()){
+                P_Node * curr = temp->GetRight();
+                while(curr->GetLeft()){
+                    curr = curr->GetLeft();
+                }
+                
+            }
         }
         else{
             return remove(temp->GetRight(), a, i);

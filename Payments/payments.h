@@ -10,6 +10,7 @@ class Payment{
         }
         int Update();
         int compare(float a);
+        void price(float a);
     private:
         float amt;
         string item;
@@ -27,6 +28,7 @@ class P_Node{
         void SetRight(P_Node * tmep);
         int compare(float a);
         int match(string i);
+        void price(float a);
     private:
         P_Node * left;
         p_Node * right;
