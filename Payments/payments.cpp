@@ -186,3 +186,18 @@ int Economy::remove(P_Node * temp, float a, string i){
     return remove(temp->GetRight(), a, i);
 
 }
+
+int Economy::display_all(){
+    return display_all(root);
+}
+
+int Economy::display_all(P_Node * temp){    
+    if(!temp){
+        return 0;
+    }
+    display_all(temp->GetLeft());
+    temp.display();
+    display_all(temp->GetRight());
+    return 0;
+
+}

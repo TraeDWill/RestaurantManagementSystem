@@ -12,6 +12,8 @@ class Payment{
         int compare(float a);
         void price(float a);
         float GetAmt();
+        void display();
+        
     private:
         float amt;
         string item;
@@ -31,6 +33,8 @@ class P_Node{
         int match(string i);
         void price(float a);
         float GetAmt();
+        void display();
+
     private:
         P_Node * left;
         p_Node * right;
@@ -47,6 +51,7 @@ class Economy{
         int remove();
         int remove(P_Node * temp, float a, string i);
         void display_all();
+        void display_all(P_Node * temp);
     private:
         P_Node * root;
 }
