@@ -59,6 +59,13 @@ int Payment::compare(float a){
     return 2;
 }
 
+float Payment::GetAmt(){
+    return amt;
+}
+
+float P_Node::GetAmt(){
+    return pay.GetAmt();
+}
 void P_Node::price(float a){
     pay.price(a);
 }
@@ -137,9 +144,17 @@ int Economy::remove(P_Node * temp, float a, string i){
             }
             else if(temp->GetRight() && temp->GetLeft()){
                 P_Node * curr = temp->GetRight();
+                P_Node * tail = curr;
                 while(curr->GetLeft()){
+                    tail = curr;
                     curr = curr->GetLeft();
                 }
+                temp.price(curr.GetAmt());
+                delete curr;
+                curr = nullptr;
+                tail->SetLeft(nullptr);
+            }
+            else{
                 
             }
         }
