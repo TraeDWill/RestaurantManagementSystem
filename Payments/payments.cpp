@@ -136,11 +136,15 @@ int Economy::remove(){
 }
 
 int Economy::remove(P_Node * temp, float a, string i){
+    if(!temp){
+        return 0;
+    }
     if(temp->compare(a) == 2){
         if(temp->match(i) == 0){
             if(temp->GetRight() && temp->GetLeft()){
                 delete temp;
                 temp = nullptr;
+                return 1;
             }
             else if(temp->GetRight() && temp->GetLeft()){
                 P_Node * curr = temp->GetRight();
@@ -153,9 +157,23 @@ int Economy::remove(P_Node * temp, float a, string i){
                 delete curr;
                 curr = nullptr;
                 tail->SetLeft(nullptr);
+                return 1;
             }
             else{
-                
+                if(temp->GetRight()){
+                    P_Node * curr = temp->GetRight();
+                    temp.price(curr.GetAmt());
+                    delete curr;
+                    temp.SetRight(nullptr);
+                    return 1;
+                }
+                else{
+                    P_Node * curr = temp->GetLeft();
+                    temp.price(curr.GetAmt());
+                    delete curr;
+                    temp.SetLeft(nullptr);
+                    return 1;
+                }
             }
         }
         else{
