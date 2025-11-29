@@ -11,7 +11,7 @@ using namespace std;
 
 class System{
     public:
-        System() : AllOrders(), inventory(), Mnt(), ContactList(){};\
+        System() : AllOrders(), inventory(), Mnt(), ContactList(), Payment(){};\
         void menu();
     private:
         ContactList contacts;
