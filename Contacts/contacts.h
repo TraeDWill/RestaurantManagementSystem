@@ -12,8 +12,8 @@ class Contact{
             name = c_name;
             phone = c_phone;
         }
-        int comp_name(string c_name);
-        void display();
+        int CompName(string c_name);
+        void Display();
 
     private:
         string name;
@@ -27,10 +27,10 @@ class ContactNode{
         {
             next = nullptr;
         }
-        void display();
+        void Display();
         ContactNode * MoveNext();
-        int comp_name(string c_name);
-        void set_next(ContactNode * temp);
+        int CompName(string c_name);
+        void SetNext(ContactNode * temp);
     private:
         Contact local;
         ContactNode * next;
@@ -43,11 +43,11 @@ class ContactList{
                 list[i] = nullptr;
             }
         }
-        void menu();
-        int add_contact(string c_name, long c_phone);
-        int remove_contact(string c_name);
-        void display_contact(string c_name);
-        int hash_function(string c_name);
+        void Menu();
+        int AddContact(string c_name, long c_phone);
+        int RemoveContact(string c_name);
+        void DisplayContact(string c_name);
+        int HashFunction(string c_name);
     private:
         ContactNode * list[TABLE_SIZE];
 };

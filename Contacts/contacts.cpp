@@ -1,12 +1,12 @@
 #include "contacts.h"
 
-    int Contact::comp_name(string c_name){
+    int Contact::CompName(string c_name){
         if(name == c_name)
             return 1;
         return 0;
     }
 
-    void Contact::display(){
+    void Contact::Display(){
         cout << "Contact Name:" << name << endl;
         cout << "Contact Number:" << phone << endl;
     }
@@ -15,22 +15,22 @@
         return next;
     }
 
-    void ContactNode::set_next(ContactNode * temp){
+    void ContactNode::SetNext(ContactNode * temp){
         next = temp;
     }
 
-    void ContactNode::display(){
-        list.display();
+    void ContactNode::Display(){
+        list.Display();
     }
 
-    int ContactNode::comp_name(string c_name){
-        return list.comp_name(c_name);
+    int ContactNode::CompName(string c_name){
+        return list.CompName(c_name);
     }
 
-    int ContactList::add_contact(string c_name, long c_phone){
+    int ContactList::AddContact(string c_name, long c_phone){
         ContactNode * temp = nullptr;
         ContactNode * curr = nullptr;
-        int key = hash_function(c_name);
+        int key = HashFunction(c_name);
         
         list[key] = new ContactNode;
         temp = list[key];
@@ -48,15 +48,15 @@
         return 1;
 
     }
-    int ContactList::remove_contact(string c_name){
+    int ContactList::RemoveContact(string c_name){
         ContactNode * temp = nullptr;
         ContactNode * curr = nullptr;
         ContactNode * add = nullptr;
-        int key = hash_function(c_name);
+        int key = HashFunction(c_name);
         
         temp = list[key];
 
-        while(temp && temp->comp_name(c_name) == 0){
+        while(temp && temp->CompName(c_name) == 0){
             curr = temp;
             temp = temp->MoveNext();
         }
@@ -68,7 +68,7 @@
             }
             else{
                 add = temp->MoveNext();
-                curr->set_next(add);
+                curr->SetNext(add);
                 delete temp;
                 temp = nullptr;
 
@@ -77,24 +77,24 @@
         }
         return 0;
     }
-    void ContactList::display_contact(string c_name){
-        int key = hash_function(c_name);
+    void ContactList::DisplayContact(string c_name){
+        int key = HashFunction(c_name);
         ContactNode * temp = nullptr;
 
         temp = list[key];
 
-        while(temp && temp->comp_name(c_name) != 1){
+        while(temp && temp->CompName(c_name) != 1){
             temp = temp->MoveNext();
         }
         if(temp){
-            temp.display();
+            temp.Display();
         }
         else{
             cout << "No such contact." << endl;
         }
 
     }
-    int ContactList::hash_function(string c_name){
+    int ContactList::HashFunction(string c_name){
             unsigned long hash = 0;
             for (char c : key)
                 hash = (hash * 31 + c) % TABLESIZE;
@@ -102,7 +102,7 @@
 
     }
 
-    void ContactList::menu(){
+    void ContactList::Menu(){
         string c_name;
         long c_phone;
         int choice;
@@ -123,19 +123,19 @@
                     cin >> c_phone;
                     cin.ignore(1234, '\n');
 
-                    add_contact(c_name, c_phone);
+                    AddContact(c_name, c_phone);
                 case 2:
                     cout << "Which contact would you like to remove?" << endl;
                     cin.get(c_name, 50, '\n');
                     cin.ignore(1234, '\n');
 
-                    dequeue(c_name);
+                    Dequeue(c_name);
                 case 3:
                     cout << "Which contact would you like to display?" << endl;
                     cin.get(c_name, 50, '\n');
                     cin.ignore(1234, '\n');
 
-                    display_contact(c_name);
+                    DisplayContact(c_name);
                 case 4:
                     cout << "Exiting Menu" << endl;
                 default:
