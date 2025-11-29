@@ -201,3 +201,27 @@ int Economy::display_all(P_Node * temp){
     return 0;
 
 }
+
+void Economy::menu(){
+    int choice = 0;
+
+    while(choice != 4){
+        cout << "1. Add Payment" << endl;
+        cout << "2. Remove Payment" << endl;
+        cout << "3. Display All" << endl;
+        cout << "4. Exit Menu" << endl;
+
+        switch(choice){
+            case 1:
+                root->insert();
+            case 2:
+                root->remove();
+            case 3:
+                root->display_all();
+            case 4:
+                cout << "Exiting Payments" << endl;
+            default:
+                cout << "Incorrect Choice" << endl;
+        }
+    }
+}

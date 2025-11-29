@@ -52,6 +52,8 @@ class Economy{
         int remove(P_Node * temp, float a, string i);
         void display_all();
         void display_all(P_Node * temp);
+        void menu();
+        
     private:
         P_Node * root;
 }

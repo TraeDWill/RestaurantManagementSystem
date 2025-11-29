@@ -5,6 +5,7 @@
 #include "Contacts/contacts.h"
 #include "Orders/orders.h"
 #include "Maintenance/mnt.h"
+#include "Payments/payments.h"
 
 using namespace std;
 
@@ -17,4 +18,5 @@ class System{
         inventory stock;
         AllOrders orders;
         Mnt mnt;
+        Economy money;
 };
