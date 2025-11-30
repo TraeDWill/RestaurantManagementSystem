@@ -12,6 +12,7 @@ class Contact{
             name = c_name;
             phone = c_phone;
         }
+        ~Contact(){}
         int CompName(string c_name);
         void Display();
 
@@ -27,6 +28,11 @@ class ContactNode{
         {
             next = nullptr;
         }
+        ~ContactNode(){
+            if(next){
+                next = nullptr;
+            }
+        }
         void Display();
         ContactNode * MoveNext();
         int CompName(string c_name);
@@ -41,6 +47,14 @@ class ContactList{
         ContactList(){
             for(int i = 0; i < TABLE_SIZE; ++i){
                 list[i] = nullptr;
+            }
+        }
+        ~ContactList(){
+            for(int i = 0; i < TABLE_SIZE; ++i){
+                if(list[i]){
+                    delete list[i];
+                    list[i] = nullptr;
+                }
             }
         }
         void Menu();
