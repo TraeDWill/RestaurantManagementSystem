@@ -129,7 +129,7 @@
                     cin.get(c_name, 50, '\n');
                     cin.ignore(1234, '\n');
 
-                    Dequeue(c_name);
+                    RemoveContact(c_name);
                 case 3:
                     cout << "Which contact would you like to display?" << endl;
                     cin.get(c_name, 50, '\n');
