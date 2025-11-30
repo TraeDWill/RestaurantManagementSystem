@@ -4,35 +4,35 @@
 
 using namespace std;
 
-class Request{
+class request{
     public: 
-        Request(){
+        request(){
             zone = 0;
             type = "";
         }
-        int add_request(int z, string t);
+        int addRequest(int z, string t);
         void display();
     private:
         int zone;
         string type;
 }
 
-class RequestNode{
+class requestNode{
     public:
-        RequestNode(){
+        requestNode(){
             next = nullptr;
         }
-        int SetNext(RequestNode * temp);
-        RequestNode * GetNext();
+        int setNext(RequestNode * temp);
+        RequestNode * getNext();
         void display();
     private:
-        Request rqts[5];
-        RequestNode * next;
+        request rqts[5];
+        requestNode * next;
 }
 
-class Mnt{
+class mnt{
     public:
-        Mnt(){
+        mnt(){
             head = nullptr;
             spot = 0;
         }
@@ -41,6 +41,6 @@ class Mnt{
         void display();
         void menu();
     private:
-        RequestNode * head;
+        requestNode * head;
         int spot;
 }
