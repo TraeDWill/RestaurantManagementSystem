@@ -1,6 +1,6 @@
 #include "mnt.h"
 
-int Request::add_request(int z, string t){
+int request::addRequest(int z, string t){
     zone = z;
     type = t;
     return 1;
@@ -11,52 +11,52 @@ void Request::display(){
     cout << "Type: " << type << endl;
 }
 
-void RequestNode::display(){
+void requestNode::display(){
     rqts[spot].display();
 }
 
-int RequestNode::SetNext(RequestNode * temp){
+int requestNode::SetNext(requestNode * temp){
     next = temp;
     return 1;
 }
 
-RequestNode * RequestNode::GetNext(){
+requestNode * requestNode::etNext(){
     return next;
 }
 
-int Mnt::push(int z, string t){
+int mnt::push(int z, string t){
     RequestNode * temp = head;
     
-    while(temp->GetNext()){
-        temp = temp->GetNext();
+    while(temp->getNext()){
+        temp = temp->getNext();
     }
 
     if(spot == 4){
-        temp->GetNext() = new RequestNode();
-        temp = temp->GetNext();
+        temp->getNext() = new requestNode();
+        temp = temp->getNext();
         spot == 0;
     }
 
-    rqts[spot].add_request(z, t);
+    rqts[spot].addRequest(z, t);
     ++spot;
     return 1;
 }
 
 int pop(){
     RequestNode * temp = head;
-    while(temp->GetNext()){
-        temp = temp->GetNext();
+    while(temp->getNext()){
+        temp = temp->getNext();
     }
     temp->dispaly();
     --spot;
     return 1;
 }
 
-void Mnt::display(){
+void mnt::display(){
     head->display();
 }
 
-void Mnt::menu(){
+void mnt::menu(){
     int choice = 0;
     int z = 0;
     string t = "";
