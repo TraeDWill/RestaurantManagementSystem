@@ -149,11 +149,11 @@ int TComp(char * t){
     return strcmp(t, type);
 }
 
-int Inventory::add_category(){
+int Inventory::AddCategory(){
     char cat[50];
     char * cat_name = nullptr;
-    category * temp = nullptr;
-    category * curr = nullptr;
+    Category * temp = nullptr;
+    Category * curr = nullptr;
 
     cout << "What is the name of the category you'd like to add?" << endl;
     cin.get(cat, 50, '\n');
@@ -163,25 +163,25 @@ int Inventory::add_category(){
     strcpy(cat_name, cat);
 
     if(!head){
-        head = new category(cat);
+        head = new Category(cat);
     }
     else{
         while(temp->GetNext()){
             temp = temp->GetNext();
         }
-        curr = new category(cat);
-        temp->next(curr);
+        curr = new Category(cat);
+        temp->Next(curr);
     }
     return 1;
 
 }
 
-int inventory::remove_category(){
+int Inventory::RemoveCategory(){
     char cat[50];
     char * cat_name = nullptr;
-    category * temp = nullptr;
-    category * curr = nullptr;
-    category * last = nullptr;
+    Category * temp = nullptr;
+    Category * curr = nullptr;
+    Category * last = nullptr;
 
     cout << "What is the name of the category you'd like to remove?" << endl;
     cin.get(cat, 50, '\n');
@@ -195,22 +195,22 @@ int inventory::remove_category(){
     }
     else{
         temp = head;
-        while(temp && (temp.comp(cat) != 0)){
+        while(temp && (temp.Comp(cat) != 0)){
             curr = temp;
             temp = temp->GetNext();
         }
         if(temp){
             if(!temp->GetNext()){
-                temp.end();
+                temp.End();
                 delete temp;
                 temp = nullptr;
-                curr->next(temp);
+                curr->Next(temp);
                 return 1;
             }
             else{
                 last = temp->GetNext();
-                curr->next(last);
-                temp.end();
+                curr->Next(last);
+                temp.End();
                 temp = nullptr;
                 return 1;
             }
@@ -220,29 +220,16 @@ int inventory::remove_category(){
     }
 }
 
-int add_ingredient(){
-
-}
-
-int remove_ingredient(){
-
-}
-
-void display_all_ingredients(){
-    
-}
-
-int inventory::add_ingredient(){
+int Inventory::AddIngredient(){
     char temp[50];
     char curr[50];
     char * cat = nullptr;
     char * ing = nullptr;
-    category * find = head;
+    Category * find = head;
 
     cout << "What is the type of category you'd like to add the ingredient to?" << endl;
     cin.get(temp, 50, '\n');
     cin.ignore(1234, '\n');
-
 
     cat = new char(strlen(temp) + 1);
     strcpy(cat, temp);
@@ -254,7 +241,7 @@ int inventory::add_ingredient(){
     ing = new char[strlen(curr) + 1];
     strcpy(ing, curr);
 
-    while(find && find->tcmp(cat) != 0){
+    while(find && find->TComp(cat) != 0){
         find = find.GetNext();
     }
 
@@ -262,12 +249,12 @@ int inventory::add_ingredient(){
         cout << "Category not found" << endl;
         return 0;
     }
-    find.add_ingredient(ing);
+    find.AddIngredient(ing);
     return 1;
 
 }
 
-void inventory::menu(){
+void Inventory::Menu(){
     int choice = 0;
 
     cout << "Would you like to:" << endl;
@@ -282,17 +269,17 @@ void inventory::menu(){
     while(choice != 7){
         switch(choice){
             case 1: 
-                add_category();
+                AddCategory();
             case 2:
-                remove_category();
+                RemoveCategory();
             case 3:
-                dispaly_all();
+                DispalyAll();
             case 4:
-                add_ingredient();
+                AddIngredient();
             case 5: 
-                remove_ingredient();
+                RemoveIngredient();
             case 6:
-                display_all_ingredients();
+                DisplayAllIngredients();
             case 7:
                 cout << "Exiting inventory menu" << endl;
         }
