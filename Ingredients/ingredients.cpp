@@ -37,17 +37,17 @@ void Ingredient::Remove(){
     delete ing_name;
 }
 
-int category::add_ingredient(char * name, int amt){       
+int Category::AddIngredient(char * name, int amt){       
     int result = 0;
     int amt = 0;
-    node * temp = nullptr;
-    node * trail = nullptr;
-    node * insert = nullptr;
+    Ingredient * temp = nullptr;
+    Ingredient * trail = nullptr;
+    Ingredient * insert = nullptr;
     
     cout << "How many lbs(in whole numbers) rounded to the lower number is there of this item?" << endl;
 
     if(!head){
-        head = new ingredient(name, amt);
+        head = new Ingredient(name, amt);
     }
     else{
         temp = head;
@@ -57,55 +57,55 @@ int category::add_ingredient(char * name, int amt){
             result = temp->next(temp);
         }
         if(!temp){
-            temp = new ingredient(name, amt);
+            temp = new Ingredient(name, amt);
         }
         else if(result == 1){
-            insert = new ingredient(name, amt);
-            trail->connect(insert);
-            insert->connect(temp);
+            insert = new Ingredient(name, amt);
+            trail->Connect(insert);
+            insert->Connect(temp);
         }
         else{
-            cout << "New amount is:" << temp->add(amt) << endl;
+            cout << "New amount is:" << temp->Add(amt) << endl;
         }
     }
     return 1;
 }
 
-int category::remove_ingredient(char * ing){
-    ingredient * temp = head;
-    ingredient * trail;
-    ingredient * lead;
+int Category::RemoveIngredient(char * ing){
+    Ingredient * temp = head;
+    Ingredient * trail;
+    Ingredient * lead;
     if(!head){
         return 0;
     }
-    while(temp && temp->name_comp(ing) != 0){
+    while(temp && temp->NameComp(ing) != 0){
         trail = temp;
-        temp->next(temp);
+        temp->Next(temp);
     }
     if(!temp){
         return 0;
     }
-    temp->next(lead);
-    temp->remove();
+    temp->Next(lead);
+    temp->Remove();
     delete temp;
-    trail->connect(lead);
+    trail->Connect(lead);
     return 1;
 }
 
-int category::find_ingredient(char * ing){
-    ingredient * temp = head;
+int Category::FindIngredient(char * ing){
+    Ingredient * temp = head;
 
     while(temp && temp->name_comp(ing) != 0){
-        temp->next(temp);
+        temp->Next(temp);
     }
     if(temp){
-        temp.display();
+        temp.Display();
         return 1;
     }
     return 0;
 }
 
-int category::disp_all_ing(){
+int Category::DispAllIng(){
     ingredient * temp = head;
     if(!temp){
         return 0;
@@ -117,39 +117,39 @@ int category::disp_all_ing(){
     return 1;
 }
 
-category * category::GetNext(){
+Category * Category::GetNext(){
     return next;
 }
 
-int category::next(category *& temp){
+int Category::Next(Category *& temp){
     next = temp;
     return 1;
 }
 
-int category::comp(char * cat){
+int Category::Comp(char * cat){
     return strcmp(cat, type);
 }
 
-void category::end(){
-    ingredient * temp = nullptr;
+void Category::End(){
+    Ingredient * temp = nullptr;
 
     delete type;
 
     if(head){
         while(head){
             temp = head->GetNext();
-            head.remove();
+            head.Remove();
             delete head;
             head = temp;
         }    
     }
 }
 
-int tcomp(char * t){
+int TComp(char * t){
     return strcmp(t, type);
 }
 
-int inventory::add_category(){
+int Inventory::add_category(){
     char cat[50];
     char * cat_name = nullptr;
     category * temp = nullptr;
