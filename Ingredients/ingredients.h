@@ -6,20 +6,20 @@
 using namespace std;
 using namespace date;
 
-class ingredient{
+class Ingredient{
     public:
-        ingredient(char * name, int amount){
+        Ingredient(char * name, int amount){
             ing_name = new char[strlen(name) + 1];
             strcpy(ing_name, name);
             amt_in_lbs = amount;
             next = nullptr;
         }
-        int display();
-        int next(ingredient *& temp);
-        int name_cmp(char * name);
-        void connect(ingredient *& temp);
-        int add(int add);
-        void remove();
+        int Display();
+        int Next(ingredient *& temp);
+        int NameCmp(char * name);
+        void Connect(ingredient *& temp);
+        int Add(int add);
+        void Remove();
         
     private:
         char * ing_name;
@@ -27,22 +27,22 @@ class ingredient{
         ingredient * next;
 }
 
-class category{
+class Category{
     public:
-        category(char * t_name){
+        Category(char * t_name){
             type = new char[strlen(t_name)+1];
             strcpy(type, t_name);
             ing_amount = 0;
             head = nullptr;
         }
-        int add_ingredient(char * name);
-        int remove_ingredient(char * ing);
-        int find_ingredient(char * ing);
-        int disp_all_ing();
-        int next(category *& temp);
+        int AddIngredient(char * name);
+        int RemoveIngredient(char * ing);
+        int FindIngredient(char * ing);
+        int DispAllIng();
+        int Next(category *& temp);
         category * GetNext();
-        void end();
-        int tcomp(char * t);
+        void End();
+        int TComp(char * t);
 
     private:
         char * type;
@@ -51,18 +51,18 @@ class category{
         ingredient * head;
 };
 
-class inventory{
+class Inventory{
     public:
-        inventory(){
+        Inventory(){
             head = nullptr;
         }
-        int add_category();
-        int remove_category();
-        void display_all();
-        int add_ingredient();
-        int remove_ingredient();
-        void display_all_ingredients();
-        void menu();
+        int AddCategory();
+        int RemoveCategory();
+        void DisplayAll();
+        int AddIngredient();
+        int RemoveIngredient();
+        void DisplayAllIngredients();
+        void Menu();
 
     private: 
         category * head;

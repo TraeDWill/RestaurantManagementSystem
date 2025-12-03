@@ -1,10 +1,11 @@
 #include "ingredients.h"
-void ingredient::display(){
+
+void Ingredient::Display(){
     cout << "Ingredient Name" << ing_name << endl;
     cout << "Amount in Lbs" << amt_in_lbs << endl;
 }
 
-int ingredient::next(ingredient *& temp){
+int Ingredient::Next(Ingredient *& temp){
     if(next){
         temp = next;
     }
@@ -14,7 +15,7 @@ int ingredient::next(ingredient *& temp){
     return 1;
 }
 
-int ingredient::name_comp(char * name){
+int Ingredient::NameComp(char * name){
     int num = strcmp(ing_name, name);
     if(num < 0)
         return -1;
@@ -23,16 +24,16 @@ int ingredient::name_comp(char * name){
     return 0;
 }
 
-void ingredient::connect(ingredient *& temp){
+void Ingredient::Connect(Ingredient *& temp){
     next = temp;
 }
 
-int ingredient::add(int add){
+int Ingredient::Add(int add){
     amt_in_lbs += add;
     return amt_in_lbs;
 }
 
-void ingredient::remove(){
+void Ingredient::Remove(){
     delete ing_name;
 }
 
