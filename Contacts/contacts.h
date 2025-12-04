@@ -17,8 +17,8 @@ class Contact{
         void Display();
 
     private:
-        string name;
-        long phone;
+        string Name;
+        long Phone;
 
 };
 
@@ -26,11 +26,12 @@ class ContactNode{
     public:
         ContactNode(string c_name, long c_phone): local(c_name, c_phone)
         {
-            next = nullptr;
+            Next = nullptr;
         }
         ~ContactNode(){
-            if(next){
-                next = nullptr;
+            if(Next){
+                delete Next;
+                Next = nullptr;
             }
         }
         void Display();
@@ -38,23 +39,24 @@ class ContactNode{
         int CompName(string c_name);
         void SetNext(ContactNode * temp);
     private:
-        Contact local;
-        ContactNode * next;
+        Contact Local;
+        ContactNode * Next;
 };
 
 class ContactList{
     public:
         ContactList(){
             for(int i = 0; i < TABLE_SIZE; ++i){
-                list[i] = nullptr;
+                List[i] = nullptr;
             }
         }
         ~ContactList(){
             for(int i = 0; i < TABLE_SIZE; ++i){
-                if(list[i]){
-                    delete list[i];
-                    list[i] = nullptr;
+                if(List[i]){
+                    delete List[i];
+                    List[i] = nullptr;
                 }
+                delete [] List;
             }
         }
         void Menu();
@@ -63,5 +65,5 @@ class ContactList{
         void DisplayContact(string c_name);
         int HashFunction(string c_name);
     private:
-        ContactNode * list[TABLE_SIZE];
+        ContactNode * List[TABLE_SIZE];
 };

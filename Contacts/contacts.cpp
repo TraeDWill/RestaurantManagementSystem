@@ -1,13 +1,13 @@
 #include "contacts.h"
 
     int Contact::CompName(string c_name){
-        if(name == c_name)
+        if(Name == c_name)
             return 1;
         return 0;
     }
 
     void Contact::Display(){
-        cout << "Contact Name:" << name << endl;
+        cout << "Contact Name:" << Name << endl;
         cout << "Contact Number:" << phone << endl;
     }
 
