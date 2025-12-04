@@ -8,23 +8,23 @@
 
     void Contact::Display(){
         cout << "Contact Name:" << Name << endl;
-        cout << "Contact Number:" << phone << endl;
+        cout << "Contact Number:" << Phone << endl;
     }
 
     ContactNode * ContactNode::MoveNext(){
-        return next;
+        return Next;
     }
 
     void ContactNode::SetNext(ContactNode * temp){
-        next = temp;
+        Next = temp;
     }
 
     void ContactNode::Display(){
-        list.Display();
+        List.Display();
     }
 
     int ContactNode::CompName(string c_name){
-        return list.CompName(c_name);
+        return List.CompName(c_name);
     }
 
     int ContactList::AddContact(string c_name, long c_phone){

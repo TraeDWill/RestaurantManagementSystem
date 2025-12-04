@@ -8,12 +8,12 @@ const int TABLE_SIZE = 101;
 
 class Contact{
     public:
-        Contact(string c_name, long c_phone){
-            name = c_name;
-            phone = c_phone;
+        Contact(string CName, long CPhone){
+            Name = CName;
+            Phone = CPhone;
         }
         ~Contact(){}
-        int CompName(string c_name);
+        int CompName(string CName);
         void Display();
 
     private:
@@ -24,7 +24,7 @@ class Contact{
 
 class ContactNode{
     public:
-        ContactNode(string c_name, long c_phone): local(c_name, c_phone)
+        ContactNode(string CName, long CPhone): local(CName, CPhone)
         {
             Next = nullptr;
         }
@@ -36,8 +36,8 @@ class ContactNode{
         }
         void Display();
         ContactNode * MoveNext();
-        int CompName(string c_name);
-        void SetNext(ContactNode * temp);
+        int CompName(string CName);
+        void SetNext(ContactNode * Temp);
     private:
         Contact Local;
         ContactNode * Next;
@@ -60,10 +60,10 @@ class ContactList{
             }
         }
         void Menu();
-        int AddContact(string c_name, long c_phone);
-        int RemoveContact(string c_name);
-        void DisplayContact(string c_name);
-        int HashFunction(string c_name);
+        int AddContact(string CName, long CPhone);
+        int RemoveContact(string CName);
+        void DisplayContact(string CName);
+        int HashFunction(string CName);
     private:
         ContactNode * List[TABLE_SIZE];
 };
