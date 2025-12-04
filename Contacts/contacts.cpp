@@ -48,29 +48,29 @@
         return 1;
 
     }
-    int ContactList::RemoveContact(string c_name){
-        ContactNode * temp = nullptr;
-        ContactNode * curr = nullptr;
-        ContactNode * add = nullptr;
-        int key = HashFunction(c_name);
+    int ContactList::RemoveContact(string CName){
+        ContactNode * Temp = nullptr;
+        ContactNode * Curr = nullptr;
+        ContactNode * Add = nullptr;
+        int Key = HashFunction(CName);
         
-        temp = list[key];
+        Temp = List[Key];
 
-        while(temp && temp->CompName(c_name) == 0){
-            curr = temp;
-            temp = temp->MoveNext();
+        while(Temp && Temp->CompName(CName) == 0){
+            Curr = Temp;
+            Temp = Temp->MoveNext();
         }
 
-        if(temp){
-            if(!temp->MoveNext()){
-                delete temp;
-                temp = nullptr;
+        if(Temp){
+            if(!Temp->MoveNext()){
+                delete Temp;
+                Temp = nullptr;
             }
             else{
-                add = temp->MoveNext();
-                curr->SetNext(add);
-                delete temp;
-                temp = nullptr;
+                Add = Temp->MoveNext();
+                Curr->SetNext(Add);
+                delete Temp;
+                Temp = nullptr;
 
             }
             return 1;
