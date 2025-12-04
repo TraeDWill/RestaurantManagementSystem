@@ -1,7 +1,7 @@
 #include "contacts.h"
 
-    int Contact::CompName(string c_name){
-        if(Name == c_name)
+    int Contact::CompName(string CName){
+        if(Name == CName)
             return 1;
         return 0;
     }
@@ -15,35 +15,35 @@
         return Next;
     }
 
-    void ContactNode::SetNext(ContactNode * temp){
-        Next = temp;
+    void ContactNode::SetNext(ContactNode * Temp){
+        Next = Temp;
     }
 
     void ContactNode::Display(){
         List.Display();
     }
 
-    int ContactNode::CompName(string c_name){
-        return List.CompName(c_name);
+    int ContactNode::CompName(string CName){
+        return List.CompName(CName);
     }
 
-    int ContactList::AddContact(string c_name, long c_phone){
-        ContactNode * temp = nullptr;
-        ContactNode * curr = nullptr;
-        int key = HashFunction(c_name);
+    int ContactList::AddContact(string CName, long CPhone){
+        ContactNode * Temp = nullptr;
+        ContactNode * Curr = nullptr;
+        int Key = HashFunction(CName);
         
-        list[key] = new ContactNode;
-        temp = list[key];
+        List[Key] = new ContactNode;
+        Temp = List[Key];
         
-        if(!temp){
-            temp = new ContactNode(c_name, c_phone);
+        if(!Temp){
+            Temp = new ContactNode(CName, CPhone);
         }
         else{
-            while(temp->MoveNext()){
-                temp = temp->MoveNext();
+            while(Temp->MoveNext()){
+                Temp = Temp->MoveNext();
             }
-            curr = temp->MoveNext();
-            curr = new ContactNode(c_name, c_phone);
+            Curr = Temp->MoveNext();
+            Curr = new ContactNode(CName, CPhone);
         }
         return 1;
 
