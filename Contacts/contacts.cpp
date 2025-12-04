@@ -77,35 +77,35 @@
         }
         return 0;
     }
-    void ContactList::DisplayContact(string c_name){
-        int key = HashFunction(c_name);
-        ContactNode * temp = nullptr;
+    void ContactList::DisplayContact(string CName){
+        int Key = HashFunction(CName);
+        ContactNode * Temp = nullptr;
 
-        temp = list[key];
+        Temp = List[Key];
 
-        while(temp && temp->CompName(c_name) != 1){
-            temp = temp->MoveNext();
+        while(Temp && Temp->CompName(CName) != 1){
+            Temp = Temp->MoveNext();
         }
-        if(temp){
-            temp.Display();
+        if(Temp){
+            Temp.Display();
         }
         else{
             cout << "No such contact." << endl;
         }
 
     }
-    int ContactList::HashFunction(string c_name){
-            unsigned long hash = 0;
-            for (char c : key)
-                hash = (hash * 31 + c) % TABLESIZE;
-            return hash;
+    int ContactList::HashFunction(string CName){
+            unsigned long Hash = 0;
+            for (char c : Key)
+                Hash = (Hash * 31 + c) % TABLESIZE;
+            return Hash;
 
     }
 
     void ContactList::Menu(){
-        string c_name;
-        long c_phone;
-        int choice;
+        string CName;
+        long CPhone;
+        int Choice;
         
         cout << "Would you like to:" << endl;
         cout << "1. Add contact" << endl;
@@ -113,29 +113,29 @@
         cout << "3. Display a contact" << endl;
         cout << "4. End Menu" << endl;
 
-        while(choice != 4){
-            switch(choice){
+        while(Choice != 4){
+            switch(Choice){
                 case 1:
                     cout << "Which contact would you like to add?" << endl;
-                    cin.get(c_name, 1234, '\n');
+                    cin.get(CName, 1234, '\n');
                     cin.ignore(1234, '\n');
                     cout << "What is the phone number?" << endl;
-                    cin >> c_phone;
+                    cin >> CPhone;
                     cin.ignore(1234, '\n');
 
-                    AddContact(c_name, c_phone);
+                    AddContact(CName, CPhone);
                 case 2:
                     cout << "Which contact would you like to remove?" << endl;
-                    cin.get(c_name, 50, '\n');
+                    cin.get(CName, 50, '\n');
                     cin.ignore(1234, '\n');
 
-                    RemoveContact(c_name);
+                    RemoveContact(CName);
                 case 3:
                     cout << "Which contact would you like to display?" << endl;
-                    cin.get(c_name, 50, '\n');
+                    cin.get(CName, 50, '\n');
                     cin.ignore(1234, '\n');
 
-                    DisplayContact(c_name);
+                    DisplayContact(CName);
                 case 4:
                     cout << "Exiting Menu" << endl;
                 default:
