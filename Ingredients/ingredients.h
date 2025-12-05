@@ -8,47 +8,47 @@ using namespace date;
 
 class Ingredient{
     public:
-        Ingredient(char * name, int amount){
-            ing_name = new char[strlen(name) + 1];
-            strcpy(ing_name, name);
-            amt_in_lbs = amount;
-            next = nullptr;
+        Ingredient(char * Name, int Amount){
+            IngName = new char[strlen(Name) + 1];
+            strcpy(IngName, Name);
+            AmtInLbs = Amount;
+            Next = nullptr;
         }
         int Display();
-        int Next(ingredient *& temp);
-        int NameCmp(char * name);
-        void Connect(ingredient *& temp);
+        int Next(Ingredient *& Temp);
+        int NameCmp(char * Name);
+        void Connect(Ingredient *& Temp);
         int Add(int add);
         void Remove();
         
     private:
-        char * ing_name;
-        int amt_in_lbs;
-        ingredient * next;
+        char * IngName;
+        int AmtInLbs;
+        Ingredient * Next;
 }
 
 class Category{
     public:
-        Category(char * t_name){
-            type = new char[strlen(t_name)+1];
-            strcpy(type, t_name);
-            ing_amount = 0;
-            head = nullptr;
+        Category(char * TName){
+            type = new char[strlen(TName)+1];
+            strcpy(Type, TName);
+            IngAmount = 0;
+            Head = nullptr;
         }
-        int AddIngredient(char * name);
-        int RemoveIngredient(char * ing);
-        int FindIngredient(char * ing);
+        int AddIngredient(char * Name);
+        int RemoveIngredient(char * Ing);
+        int FindIngredient(char * Ing);
         int DispAllIng();
-        int Next(category *& temp);
-        category * GetNext();
+        int Next(Category *& Temp);
+        Category * GetNext();
         void End();
-        int TComp(char * t);
+        int TComp(char * T);
 
     private:
-        char * type;
-        int ing_amount;
-        category * next;
-        ingredient * head;
+        char * Type;
+        int IngAmount;
+        Category * Next;
+        Ingredient * Head;
 };
 
 class Inventory{
