@@ -54,7 +54,7 @@ class Category{
 class Inventory{
     public:
         Inventory(){
-            head = nullptr;
+            Head = nullptr;
         }
         int AddCategory();
         int RemoveCategory();
@@ -65,5 +65,5 @@ class Inventory{
         void Menu();
 
     private: 
-        category * head;
+        Category * Head;
 }
