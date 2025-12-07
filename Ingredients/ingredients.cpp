@@ -37,35 +37,35 @@ void Ingredient::Remove(){
     delete IngName;
 }
 
-int Category::AddIngredient(char * name, int amt){       
-    int result = 0;
-    int amt = 0;
-    Ingredient * temp = nullptr;
-    Ingredient * trail = nullptr;
-    Ingredient * insert = nullptr;
+int Category::AddIngredient(char * Name, int Amt){       
+    int Result = 0;
+    int Amt = 0;
+    Ingredient * Temp = nullptr;
+    Ingredient * Trail = nullptr;
+    Ingredient * Insert = nullptr;
     
     cout << "How many lbs(in whole numbers) rounded to the lower number is there of this item?" << endl;
 
-    if(!head){
-        head = new Ingredient(name, amt);
+    if(!Head){
+        Head = new Ingredient(Name, Amt);
     }
     else{
-        temp = head;
-        trail = head;
-        while(temp && (temp->name_comp(name) == -1)){
-            trail = temp;
-            result = temp->next(temp);
+        Temp = Head;
+        Trail = Head;
+        while(Temp && (Temp->NameComp(Name) == -1)){
+            Trail = Temp;
+            Result = Temp->Next(Temp);
         }
-        if(!temp){
-            temp = new Ingredient(name, amt);
+        if(!Temp){
+            Temp = new Ingredient(Name, Amt);
         }
-        else if(result == 1){
-            insert = new Ingredient(name, amt);
-            trail->Connect(insert);
-            insert->Connect(temp);
+        else if(Result == 1){
+            Insert = new Ingredient(Name, Amt);
+            Trail->Connect(Insert);
+            Insert->Connect(Temp);
         }
         else{
-            cout << "New amount is:" << temp->Add(amt) << endl;
+            cout << "New amount is:" << Temp->Add(Amt) << endl;
         }
     }
     return 1;
