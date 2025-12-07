@@ -72,81 +72,81 @@ int Category::AddIngredient(char * Name, int Amt){
 }
 
 int Category::RemoveIngredient(char * ing){
-    Ingredient * temp = head;
-    Ingredient * trail;
-    Ingredient * lead;
-    if(!head){
+    Ingredient * Temp = Head;
+    Ingredient * Trail;
+    Ingredient * Lead;
+    if(!Head){
         return 0;
     }
-    while(temp && temp->NameComp(ing) != 0){
-        trail = temp;
-        temp->Next(temp);
+    while(Temp && Temp->NameComp(Ing) != 0){
+        Trail = Temp;
+        Temp->Next(Temp);
     }
-    if(!temp){
+    if(!Temp){
         return 0;
     }
-    temp->Next(lead);
-    temp->Remove();
-    delete temp;
-    trail->Connect(lead);
+    Temp->Next(Lead);
+    Temp->Remove();
+    delete Temp;
+    Trail->Connect(Lead);
     return 1;
 }
 
-int Category::FindIngredient(char * ing){
-    Ingredient * temp = head;
+int Category::FindIngredient(char * Ing){
+    Ingredient * Temp = Head;
 
-    while(temp && temp->name_comp(ing) != 0){
-        temp->Next(temp);
+    while(Temp && Temp->NameComp(Ing) != 0){
+        Temp->Next(Temp);
     }
-    if(temp){
-        temp.Display();
+    if(Temp){
+        Temp.Display();
         return 1;
     }
     return 0;
 }
 
 int Category::DispAllIng(){
-    ingredient * temp = head;
-    if(!temp){
+    Ingredient * Temp = Head;
+    if(!Temp){
         return 0;
     }
-    while(temp){
-        temp.display();
-        temp->next(temp);
+    while(Temp){
+        Temp.Display();
+        Temp->Next(Temp);
     }
     return 1;
 }
 
 Category * Category::GetNext(){
-    return next;
+    return Next;
 }
 
-int Category::Next(Category *& temp){
-    next = temp;
+int Category::Next(Category *& Temp){
+    Next = Temp;
     return 1;
 }
 
-int Category::Comp(char * cat){
-    return strcmp(cat, type);
+int Category::Comp(char * Cat){
+    return strcmp(Cat, Type);
 }
 
 void Category::End(){
-    Ingredient * temp = nullptr;
+    Ingredient * Temp = nullptr;
 
-    delete type;
+    delete Type;
 
-    if(head){
-        while(head){
-            temp = head->GetNext();
-            head.Remove();
-            delete head;
-            head = temp;
+    if(Head){
+        while(Head){
+            Temp = Head->GetNext();
+            Head.Remove();
+            delete Head;
+            Head = Temp;
         }    
     }
 }
 
-int TComp(char * t){
-    return strcmp(t, type);
+int Category::TComp(char * T){
+    return strcmp(T, Type);
 }
 
 int Inventory::AddCategory(){
