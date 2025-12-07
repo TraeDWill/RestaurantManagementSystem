@@ -5,7 +5,7 @@ void Ingredient::Display(){
     cout << "Amount in Lbs" << AmtInLbs << endl;
 }
 
-int Ingredient::Next(Ingredient *& Temp){
+int IngNode::Next(IngNode *& Temp){
     if(Next){
         Temp = Next;
     }
@@ -17,14 +17,14 @@ int Ingredient::Next(Ingredient *& Temp){
 
 int Ingredient::NameComp(char * Name){
     int Num = strcmp(IngName, Name);
-    if(Num < 0)
+    if(Num < 0) 
         return -1;
     else if(Num > 0)
         return 1;
     return 0;
 }
 
-void Ingredient::Connect(Ingredient *& Temp){
+void IngNode::Connect(Ingredient *& Temp){
     Next = Temp;
 }
 
@@ -37,17 +37,17 @@ void Ingredient::Remove(){
     delete IngName;
 }
 
-int Category::AddIngredient(char * Name, int Amt){       
+int CatNode::AddIngredient(char * Name, int Amt){       
     int Result = 0;
     int Amt = 0;
-    Ingredient * Temp = nullptr;
-    Ingredient * Trail = nullptr;
-    Ingredient * Insert = nullptr;
+    IngNode * Temp = nullptr;
+    IngNode * Trail = nullptr;
+    IngNode * Insert = nullptr;
     
     cout << "How many lbs(in whole numbers) rounded to the lower number is there of this item?" << endl;
 
     if(!Head){
-        Head = new Ingredient(Name, Amt);
+        Head = new IngNode(Name, Amt);
     }
     else{
         Temp = Head;
@@ -57,10 +57,10 @@ int Category::AddIngredient(char * Name, int Amt){
             Result = Temp->Next(Temp);
         }
         if(!Temp){
-            Temp = new Ingredient(Name, Amt);
+            Temp = new IngNode(Name, Amt);
         }
         else if(Result == 1){
-            Insert = new Ingredient(Name, Amt);
+            Insert = new IngName(Name, Amt);
             Trail->Connect(Insert);
             Insert->Connect(Temp);
         }
@@ -71,10 +71,10 @@ int Category::AddIngredient(char * Name, int Amt){
     return 1;
 }
 
-int Category::RemoveIngredient(char * ing){
-    Ingredient * Temp = Head;
-    Ingredient * Trail;
-    Ingredient * Lead;
+int CatNode::RemoveIngredient(char * ing){
+    IngNode * Temp = Head;
+    IngNode * Trail;
+    IngNode * Lead;
     if(!Head){
         return 0;
     }
@@ -92,8 +92,8 @@ int Category::RemoveIngredient(char * ing){
     return 1;
 }
 
-int Category::FindIngredient(char * Ing){
-    Ingredient * Temp = Head;
+int CatNode::FindIngredient(char * Ing){
+    IngNode * Temp = Head;
 
     while(Temp && Temp->NameComp(Ing) != 0){
         Temp->Next(Temp);
@@ -105,8 +105,8 @@ int Category::FindIngredient(char * Ing){
     return 0;
 }
 
-int Category::DispAllIng(){
-    Ingredient * Temp = Head;
+int CatNode::DispAllIng(){
+    IngNode * Temp = Head;
     if(!Temp){
         return 0;
     }
@@ -131,7 +131,7 @@ int Category::Comp(char * Cat){
 }
 
 void Category::End(){
-    Ingredient * Temp = nullptr;
+    IngName * Temp = nullptr;
 
     delete Type;
 
@@ -150,68 +150,68 @@ int Category::TComp(char * T){
 }
 
 int Inventory::AddCategory(){
-    char cat[50];
-    char * cat_name = nullptr;
-    Category * temp = nullptr;
-    Category * curr = nullptr;
+    char Cat[50];
+    char * CatName = nullptr;
+    Category * Temp = nullptr;
+    Category * Curr = nullptr;
 
     cout << "What is the name of the category you'd like to add?" << endl;
-    cin.get(cat, 50, '\n');
+    cin.get(Cat, 50, '\n');
     cin.ignore(1234, '\n');
 
-    cat_name = new char[strlen(cat)+1];
-    strcpy(cat_name, cat);
+    CatName = new char[strlen(Cat)+1];
+    strcpy(CatName, Cat);
 
-    if(!head){
-        head = new Category(cat);
+    if(!Head){
+        Head = new Category(Cat);
     }
     else{
-        while(temp->GetNext()){
-            temp = temp->GetNext();
+        while(Temp->GetNext()){
+            Temp = Temp->GetNext();
         }
-        curr = new Category(cat);
-        temp->Next(curr);
+        Curr = new Category(Cat);
+        Temp->Next(Curr);
     }
     return 1;
 
 }
 
 int Inventory::RemoveCategory(){
-    char cat[50];
-    char * cat_name = nullptr;
-    Category * temp = nullptr;
-    Category * curr = nullptr;
-    Category * last = nullptr;
+    char Cat[50];
+    char * CatName = nullptr;
+    Category * Temp = nullptr;
+    Category * Curr = nullptr;
+    Category * Last = nullptr;
 
     cout << "What is the name of the category you'd like to remove?" << endl;
-    cin.get(cat, 50, '\n');
+    cin.get(Cat, 50, '\n');
     cin.ignore(1234, '\n');
 
-    cat_name = new char[strlen(cat)+1];
-    strcpy(cat_name, cat);
+    CatName = new char[strlen(Cat)+1];
+    strcpy(CatName, Cat);
 
-    if(!head){
+    if(!Head){
         return 0;
     }
     else{
-        temp = head;
-        while(temp && (temp.Comp(cat) != 0)){
-            curr = temp;
-            temp = temp->GetNext();
+        Temp = Head;
+        while(Temp && (Temp.Comp(Cat) != 0)){
+            Curr = Temp;
+            Temp = Temp->GetNext();
         }
-        if(temp){
-            if(!temp->GetNext()){
-                temp.End();
-                delete temp;
-                temp = nullptr;
-                curr->Next(temp);
+        if(Temp){
+            if(!Temp->GetNext()){
+                Temp.End();
+                delete Temp;
+                Temp = nullptr;
+                Curr->Next(Temp);
                 return 1;
             }
             else{
-                last = temp->GetNext();
-                curr->Next(last);
-                temp.End();
-                temp = nullptr;
+                Last = Temp->GetNext();
+                Curr->Next(Last);
+                Temp.End();
+                Temp = nullptr;
                 return 1;
             }
         }
@@ -221,41 +221,41 @@ int Inventory::RemoveCategory(){
 }
 
 int Inventory::AddIngredient(){
-    char temp[50];
-    char curr[50];
-    char * cat = nullptr;
-    char * ing = nullptr;
-    Category * find = head;
+    char Temp[50];
+    char Curr[50];
+    char * Cat = nullptr;
+    char * Ing = nullptr;
+    Category * Find = Head;
 
     cout << "What is the type of category you'd like to add the ingredient to?" << endl;
-    cin.get(temp, 50, '\n');
+    cin.get(Temp, 50, '\n');
     cin.ignore(1234, '\n');
 
-    cat = new char(strlen(temp) + 1);
-    strcpy(cat, temp);
+    Cat = new char(strlen(Temp) + 1);
+    strcpy(Cat, Temp);
 
     count << "What is the name of the ingredient?" << endl;
-    cin.get(curr, 50, '\n');
+    cin.get(Curr, 50, '\n');
     cin.ignore(1234, '\n');
 
-    ing = new char[strlen(curr) + 1];
-    strcpy(ing, curr);
+    Ing = new char[strlen(Curr) + 1];
+    strcpy(Ing, Curr);
 
-    while(find && find->TComp(cat) != 0){
-        find = find.GetNext();
+    while(Find && Find->TComp(Cat) != 0){
+        Find = Find.GetNext();
     }
 
-    if(!find){
+    if(!Find){
         cout << "Category not found" << endl;
         return 0;
     }
-    find.AddIngredient(ing);
+    Find.AddIngredient(Ing);
     return 1;
 
 }
 
 void Inventory::Menu(){
-    int choice = 0;
+    int Choice = 0;
 
     cout << "Would you like to:" << endl;
     cout << "1. Add a category" << endl;
@@ -266,8 +266,8 @@ void Inventory::Menu(){
     cout << "6. Display all ingredients in a cerain category" << endl;
     cout << "7. Exit Menu" << endl;
 
-    while(choice != 7){
-        switch(choice){
+    while(Choice != 7){
+        switch(Choice){
             case 1: 
                 AddCategory();
             case 2:

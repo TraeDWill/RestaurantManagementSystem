@@ -6,25 +6,60 @@
 using namespace std;
 using namespace date;
 
+
+/**
+ * @class Ingredient
+ * @brief An individual ingredient 
+ *
+ * This manages the information of said ingredient 
+ * 
+ * Usage example:
+ * @code
+ * Ingredient I(name, amount);
+ * cout << I.Display();
+ * @endcode
+ */
 class Ingredient{
     public:
+        /**
+        * @brief Constructs a Rectangle with the given dimensions.
+        *
+        * @param width  The width of the rectangle (must be >= 0).
+        * @param height The height of the rectangle (must be >= 0).
+        */
         Ingredient(char * Name, int Amount){
             IngName = new char[strlen(Name) + 1];
             strcpy(IngName, Name);
             AmtInLbs = Amount;
-            Next = nullptr;
         }
+        
+        /**
+        * @brief Returns the area of the rectangle.
+        *
+        * Computes width * height using integer multiplication.
+        *
+        * @return The computed area of the rectangle.
+        */
         int Display();
-        int Next(Ingredient *& Temp);
         int NameCmp(char * Name);
-        void Connect(Ingredient *& Temp);
         int Add(int add);
         void Remove();
         
     private:
         char * IngName;
         int AmtInLbs;
-        Ingredient * Next;
+}
+
+class IngNode{
+    public:
+        IngNode(char * IName,, int IAmount): Ingredient(IName, IAmount){
+            next = nullptr;
+        }
+    int Next(IngNode *& Temp);
+    void Connect(IngNode *& Temp);
+    private:
+        Ingredient Ing;
+        IngNode * Next;
 }
 
 class Category{
@@ -47,9 +82,20 @@ class Category{
     private:
         char * Type;
         int IngAmount;
-        Category * Next;
-        Ingredient * Head;
 };
+// Implement this
+class CatNode{
+    public:
+        CatNode(char * Name):Category(Name){
+            Next = nullptr;
+            Head = nullptr;
+        }
+
+    private:
+        Category Cat;
+        CatNode * Next;
+        IngNode * Head;
+}
 
 class Inventory{
     public:
