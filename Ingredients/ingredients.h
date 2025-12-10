@@ -22,27 +22,55 @@ using namespace date;
 class Ingredient{
     public:
         /**
-        * @brief Constructs a Rectangle with the given dimensions.
+        * @brief Creates an ingredient with said characteristics
         *
-        * @param width  The width of the rectangle (must be >= 0).
-        * @param height The height of the rectangle (must be >= 0).
+        * @param Name  The name of the ingredient.
+        * @param Amount of the ingredient in lbs.
         */
         Ingredient(char * Name, int Amount){
             IngName = new char[strlen(Name) + 1];
             strcpy(IngName, Name);
             AmtInLbs = Amount;
         }
+
+        ~Ingredient(){
+            delete IngName;
+        }
         
         /**
-        * @brief Returns the area of the rectangle.
+        * @brief Displays information on ingredient
         *
-        * Computes width * height using integer multiplication.
+        * Uses IOstream to display the values
         *
-        * @return The computed area of the rectangle.
+        * @return void
         */
-        int Display();
+        void Display();
+
+        /**
+        * @brief Name Comparison
+        *
+        * Yses strcmp to see if the name value matches the parameter
+        *
+        * @return int comparison of names
+        */
         int NameCmp(char * Name);
+
+        /**
+        * @brief Adds more lbs to weight
+        *
+        * Adds the input parameter to the member value of AmtInLbs
+        *
+        * @return Success int
+        */
         int Add(int add);
+
+        /**
+        * @brief Deletes memory used for name
+        *
+        * directly deletes the allocated memory so that the entire node around it can be deleted. 
+        *
+        * @return void
+        */
         void Remove();
         
     private:
@@ -51,8 +79,14 @@ class Ingredient{
 }
 
 class IngNode{
+    /**
+    * @brief Constructs an Ingredient Node for LLL
+    *
+    * @param Ing Ingredient class object
+    * @param Next Next pointer for LLL
+    */
     public:
-        IngNode(char * IName,, int IAmount): Ingredient(IName, IAmount){
+        IngNode(char * IName, int IAmount): Ingredient(IName, IAmount){
             next = nullptr;
         }
     int Next(IngNode *& Temp);
