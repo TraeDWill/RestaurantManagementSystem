@@ -79,18 +79,35 @@ class Ingredient{
 }
 
 class IngNode{
-    /**
-    * @brief Constructs an Ingredient Node for LLL
-    *
-    * @param Ing Ingredient class object
-    * @param Next Next pointer for LLL
-    */
+
     public:
+        /**
+        * @brief Constructs an Ingredient Node for LLL
+        *
+        * @param IName Ingredient name for ingredient object constructor
+        * @param IAmount Ingredient amount in lbs for ingredient object constructor
+        */
         IngNode(char * IName, int IAmount): Ingredient(IName, IAmount){
             next = nullptr;
         }
-    int Next(IngNode *& Temp);
-    void Connect(IngNode *& Temp);
+        /**
+        * @brief Sets Temp to Next, If next exists
+        *
+        * Getter for the next member
+        *
+        * @return Successful int
+        */
+        int Next(IngNode *& Temp);
+
+        /**
+        * @brief Connects current node to temp
+        *
+        * Setter for the next data member
+        *
+        * @return void
+        */
+        void Connect(IngNode *& Temp);
+
     private:
         Ingredient Ing;
         IngNode * Next;
