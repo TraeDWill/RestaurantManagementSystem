@@ -78,6 +78,17 @@ class Ingredient{
         int AmtInLbs;
 }
 
+/**
+ * @class IngNode
+ * @brief An LLL node for a individual ingredient
+ *
+ * This node wraps the ingredient class for LLL
+ * 
+ * Usage example:
+ * @code
+ * ing->connect(temp); //Sets ing's next to temp
+ * @endcode
+ */
 class IngNode{
 
     public:
@@ -113,18 +124,76 @@ class IngNode{
         IngNode * Next;
 }
 
+/**
+ * @class Category
+ * @brief An individual Category
+ *
+ * This manages the information of a category along with a full LLL of ingredients 
+ * that belong to that category
+ *
+ * Usage example:
+ * @code
+ * Ingredient I(name, amount);
+ * cout << I.Display();
+ * @endcode
+ */
 class Category{
     public:
+        /**
+        * @brief Constructs a category object with the type name in parameter
+        *
+        * @param TName Ingredient name for ingredient object constructor
+        */
         Category(char * TName){
             type = new char[strlen(TName)+1];
             strcpy(Type, TName);
             IngAmount = 0;
             Head = nullptr;
         }
+
+        /**
+        * @brief Adds to ingredient list
+        *
+        * Inserts an LLL insert node into the ingredient list
+        *
+        * @return 0 on failure and 1 on success
+        */
         int AddIngredient(char * Name);
+
+        /**
+        * @brief Removes an ingredient from the list
+        *
+        * using the Ing name as the search argument, the proper ingredient is removed from the list.
+        *
+        * @return 0 on failure and 1 on success
+        */
         int RemoveIngredient(char * Ing);
+
+        /**
+        * @brief Finds and displays requested ingredient
+        *
+        * Using Ing as the search argument, the ingredient info is displayed 
+        *
+        * @return 0 on failure and 1 on success
+        */
         int FindIngredient(char * Ing);
+
+        /**
+        * @brief Shows full list of ingredients
+        *
+        * Traverses the LLL of ingredients and displays each individually
+        *
+        * @return 0 on failure and 1 on success
+        */
         int DispAllIng();
+
+        /**
+        * @brief Sets Temp to Next, If next exists
+        *
+        * Getter for the next member
+        *
+        * @return Successful int
+        */
         int Next(Category *& Temp);
         Category * GetNext();
         void End();
