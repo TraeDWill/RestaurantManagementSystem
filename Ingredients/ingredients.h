@@ -151,7 +151,13 @@ class Category{
             Head = nullptr;
         }
 
-
+        /**
+        * @brief Compares type names
+        *
+        * Uses strcmp to compare the argument to the member value
+        *
+        * @return result of the strcmp
+        */
         int TComp(char * T);
 
     private:
@@ -209,7 +215,23 @@ class CatNode{
         * @return Successful int
         */
         int Next(Category *& Temp);
+
+        /**
+        * @brief Gets the Next from the current node
+        *
+        * Getter for the next member
+        *
+        * @return Next pointer
+        */        
         Category * GetNext();
+
+        /**
+        * @brief Prepares Node for deletion
+        *
+        * Clears out ing LLL and prepares for deletion
+        *
+        * @return Void
+        */
         void End();
     private:
         Category Cat;
