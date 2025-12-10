@@ -151,6 +151,20 @@ class Category{
             Head = nullptr;
         }
 
+
+        int TComp(char * T);
+
+    private:
+        char * Type;
+        int IngAmount;
+};
+// Implement this
+class CatNode{
+    public:
+        CatNode(char * Name):Category(Name){
+            Next = nullptr;
+            Head = nullptr;
+        }
         /**
         * @brief Adds to ingredient list
         *
@@ -197,20 +211,6 @@ class Category{
         int Next(Category *& Temp);
         Category * GetNext();
         void End();
-        int TComp(char * T);
-
-    private:
-        char * Type;
-        int IngAmount;
-};
-// Implement this
-class CatNode{
-    public:
-        CatNode(char * Name):Category(Name){
-            Next = nullptr;
-            Head = nullptr;
-        }
-
     private:
         Category Cat;
         CatNode * Next;

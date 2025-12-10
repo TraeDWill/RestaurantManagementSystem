@@ -117,11 +117,11 @@ int CatNode::DispAllIng(){
     return 1;
 }
 
-Category * Category::GetNext(){
+CatNode * CatNode::GetNext(){
     return Next;
 }
 
-int Category::Next(Category *& Temp){
+int CatNode::Next(Category *& Temp){
     Next = Temp;
     return 1;
 }
@@ -130,7 +130,7 @@ int Category::Comp(char * Cat){
     return strcmp(Cat, Type);
 }
 
-void Category::End(){
+void CatNode::End(){
     IngName * Temp = nullptr;
 
     delete Type;
