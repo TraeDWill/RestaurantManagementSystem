@@ -164,7 +164,19 @@ class Category{
         char * Type;
         int IngAmount;
 };
-// Implement this
+
+/**
+ * @class CatNode
+ * @brief Node that wraps an individual category
+ *
+ * This node not only manages a category node, it manages the entire LLL for Ingredients
+ *
+ * Usage example:
+ * @code
+ * Ingredient I(name, amount);
+ * cout << I.Display();
+ * @endcode
+ */
 class CatNode{
     public:
         CatNode(char * Name):Category(Name){
