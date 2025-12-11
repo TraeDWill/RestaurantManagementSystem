@@ -251,6 +251,18 @@ class CatNode{
         IngNode * Head;
 }
 
+/**
+ * @class Inventory
+ * @brief Whole System
+ *
+ * This inventory system manages category LLL and menu system
+ *
+ * Usage example:
+ * @code
+ * 
+ * 
+ * @endcode
+ */
 class Inventory{
     public:
         Inventory(){
