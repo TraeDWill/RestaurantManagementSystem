@@ -254,6 +254,8 @@ int Inventory::AddIngredient(){
 
 }
 
+// Implement RemoveIngredient and DisplayAllIngredients
+
 void Inventory::Menu(){
     int Choice = 0;
 

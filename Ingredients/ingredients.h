@@ -179,6 +179,11 @@ class Category{
  */
 class CatNode{
     public:
+        /**
+        * @brief Constructs a node for category LLL 
+        *
+        * @param Name Name of category being implemented
+        */
         CatNode(char * Name):Category(Name){
             Next = nullptr;
             Head = nullptr;
@@ -259,19 +264,62 @@ class CatNode{
  *
  * Usage example:
  * @code
- * 
- * 
+ * Inventory inv;
+ * inv.AddCategory();
  * @endcode
  */
 class Inventory{
     public:
+        /**
+        * @brief Constructs an inventory
+        */
         Inventory(){
             Head = nullptr;
         }
+        /**
+        * @brief Adds Category
+        *
+        * Inserts a Category Node into a LLL
+        *
+        * @return 1 on success
+        */
         int AddCategory();
+
+        /**
+        * @brief Removes a category
+        *
+        * Removes category node from the LLL
+        *
+        * @return 1 on success, 0 on failure
+        */
         int RemoveCategory();
+
+        /**
+        * @brief Display all categories
+        *
+        * Traverses the LLL of categories and displays them
+        *
+        * @return void
+        */
         void DisplayAll();
+
+        /**
+        * @brief Adds to ingredient list
+        *
+        * Inserts an LLL insert node into the ingredient list after finding
+        * out the category it belongs to
+        *
+        * @return 0 on failure and 1 on success
+        */
         int AddIngredient();
+
+        /**
+        * @brief Removes an ingredient
+        *
+        * Removes an ingredient from a specific category
+        *
+        * @return 0 on failure and 1 on success
+        */
         int RemoveIngredient();
         void DisplayAllIngredients();
         void Menu();
