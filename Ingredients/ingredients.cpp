@@ -289,8 +289,11 @@ int Inventory::RemoveIngredient(){
     return 1;
 }
 
-void Ingredient::DisplayAllIngredients(){
-    
+void Inventory::DisplayAllIngredients(){
+    Category * Top = Head;
+    while(Top->GetNext()){
+        Top.DisAllIng();
+    }
 }
 
 void Inventory::Menu(){
