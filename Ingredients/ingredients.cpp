@@ -256,6 +256,43 @@ int Inventory::AddIngredient(){
 
 // Implement RemoveIngredient and DisplayAllIngredients
 
+int Inventory::RemoveIngredient(){
+    char Temp[50];
+    char Curr[50];
+    char * Cat = nullptr;
+    char * Ing = nullptr;
+    Category * Find = Head;
+
+    cout << "What is the type of category you'd like to remove an ingredient from?" << endl;
+    cin.get(Temp, 50, '\n');
+    cin.ignore(1234, '\n');
+
+    Cat = new char(strlen(Temp) + 1);
+    strcpy(Cat, Temp);
+
+    count << "What is the name of the ingredient?" << endl;
+    cin.get(Curr, 50, '\n');
+    cin.ignore(1234, '\n');
+
+    Ing = new char[strlen(Curr) + 1];
+    strcpy(Ing, Curr);
+
+    while(Find && Find->TComp(Cat) != 0){
+        Find = Find.GetNext();
+    }
+
+    if(!Find){
+        cout << "Category not found" << endl;
+        return 0;
+    }
+    Find.RemoveIngredient(Ing);
+    return 1;
+}
+
+void Ingredient::DisplayAllIngredients(){
+    
+}
+
 void Inventory::Menu(){
     int Choice = 0;
 
