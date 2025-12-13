@@ -321,7 +321,23 @@ class Inventory{
         * @return 0 on failure and 1 on success
         */
         int RemoveIngredient();
+        
+        /**
+        * @brief Display All Ingredients
+        *
+        * Traverses all categories to display all ingredients
+        *
+        * @return void
+        */
         void DisplayAllIngredients();
+        
+        /**
+        * @brief Menu
+        *
+        * Shows a menu for all actionable methods
+        *
+        * @return void
+        */
         void Menu();
 
     private: 

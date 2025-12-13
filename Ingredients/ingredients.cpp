@@ -325,8 +325,6 @@ void Inventory::Menu(){
             case 7:
                 cout << "Exiting inventory menu" << endl;
         }
-    }
-
-    
+    }    
 }
 
