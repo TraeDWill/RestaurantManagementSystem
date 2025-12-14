@@ -127,8 +127,23 @@ class ContactNode{
         ContactNode * Next;
 };
 
+/**
+ * @class ContactList
+ * @brief System for contacts
+ *
+ * Hash table class
+ *
+ * Usage example:
+ * @code
+ * ContactNode Temp(Name, Phone);
+ * Temp.Display(); 
+ * @endcode
+ */
 class ContactList{
     public:
+        /**
+        * @brief Constructs a Hash table for contacts
+        */
         ContactList(){
             for(int i = 0; i < TABLE_SIZE; ++i){
                 List[i] = nullptr;
@@ -143,6 +158,14 @@ class ContactList{
                 delete [] List;
             }
         }
+
+        /**
+        * @brief Sets next
+        *
+        * next setter
+        *
+        * @return void
+        */        
         void Menu();
         int AddContact(string CName, long CPhone);
         int RemoveContact(string CName);
