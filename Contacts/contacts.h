@@ -160,16 +160,49 @@ class ContactList{
         }
 
         /**
-        * @brief Sets next
+        * @brief Menu
         *
-        * next setter
+        * Access all methods from here.
         *
         * @return void
         */        
         void Menu();
+
+        /**
+        * @brief Adds Contact
+        *
+        * Inserts contact into hash table
+        *
+        * @return 1 for success
+        */            
         int AddContact(string CName, long CPhone);
+
+        /**
+        * @brief Removes contact
+        *
+        * Finds the contact to remove and removes it from the LLL on the hash
+        *
+        * @return 1 for success and 0 for failure
+        */    
         int RemoveContact(string CName);
+
+        /**
+        * @brief Displays contact
+        *
+        * Displays the information for a contact by a certain string name
+        *
+        * @return void
+        */    
         void DisplayContact(string CName);
+
+        /**
+        * @brief Hash Function
+        *
+        * Turns name into a number for which will then be the place on the 
+        * hash table that it is found.
+        *
+        * @return hash int
+        */    
         int HashFunction(string CName);
     private:
         ContactNode * List[TABLE_SIZE];
