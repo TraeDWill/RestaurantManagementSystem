@@ -24,39 +24,39 @@ RequestNode * RequestNode::GetNext(){
     return Next;
 }
 
-int mnt::push(int z, string t){
-    RequestNode * temp = head;
+int Mnt::Push(int z, string t){
+    RequestNode * temp = Head;
     
-    while(temp->getNext()){
-        temp = temp->getNext();
+    while(temp->GetNext()){
+        temp = temp->GetNext();
     }
 
-    if(spot == 4){
-        temp->getNext() = new requestNode();
-        temp = temp->getNext();
+    if(Spot == 4){
+        temp->GetNext() = new RequestNode();
+        temp = temp->GetNext();
         spot == 0;
     }
 
-    rqts[spot].addRequest(z, t);
-    ++spot;
+    Rqts[Spot].AddRequest(z, t);
+    ++Spot;
     return 1;
 }
 
-int mnt::pop(){
-    RequestNode * temp = head;
-    while(temp->getNext()){
-        temp = temp->getNext();
+int Mnt::Pop(){
+    RequestNode * temp = Head;
+    while(temp->GetNext()){
+        temp = temp->GetNext();
     }
-    temp->dispaly();
-    --spot;
+    temp->Display();
+    --Spot;
     return 1;
 }
 
-void mnt::display(){
-    head->display();
+void Mnt::Display(){
+    Head->Display();
 }
 
-void mnt::menu(){
+void Mnt::Menu(){
     int choice = 0;
     int z = 0;
     string t = "";
@@ -70,11 +70,11 @@ void mnt::menu(){
                 cout << "What is the issue in 100 char or less?" << endl;
                 cin.get(t, 100, '\n');
                 cin.ignore(1234, '\n');
-                push(z, t);
+                Push(z, t);
             case 2:
-                pop();
+                Pop();
             case 3:
-                display();
+                Display();
             case 4:
                 cout << "Exiting Maintenance Menu" << endl;
             default:
