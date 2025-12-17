@@ -11,17 +11,17 @@ void Request::Display(){
     cout << "Type: " << Type << endl;
 }
 
-void requestNode::display(){
-    rqts[spot].display();
+void RequestNode::Display(){
+    Rqts[Spot].Display();
 }
 
-int requestNode::SetNext(requestNode * temp){
-    next = temp;
+int RequestNode::SetNext(RequestNode * temp){
+    Next = temp;
     return 1;
 }
 
-requestNode * requestNode::etNext(){
-    return next;
+RequestNode * RequestNode::GetNext(){
+    return Next;
 }
 
 int mnt::push(int z, string t){

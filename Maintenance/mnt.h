@@ -61,15 +61,41 @@ class Request{
  */
 class RequestNode{
     public:
+        /**
+        * @brief Creates a RequestNode object
+        */
         RequestNode(){
             Next = nullptr;
         }
+        /**
+        * @brief Connects current node to another via next
+        *
+        * Setter 
+        *
+        * @return 1 for success
+        */
         int SetNext(RequestNode * temp);
-        RequestNode * getNext();
+
+        /**
+        * @brief Brings out Next
+        *
+        * Getter
+        *
+        * @return RequestNode pointer
+        */
+        RequestNode * GetNext();
+
+        /**
+        * @brief Displays information on request
+        *
+        * Uses Request display method
+        *
+        * @return void
+        */
         void display();
     private:
-        request rqts[5];
-        requestNode * next;
+        Request Rqts[5];
+        RequestNode * Next;
 }
 
 class mnt{
