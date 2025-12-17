@@ -1,14 +1,14 @@
 #include "mnt.h"
 
-int request::addRequest(int z, string t){
-    zone = z;
-    type = t;
+int Request::AddRequest(int z, string t){
+    Zone = z;
+    Type = t;
     return 1;
 }
 
-void Request::display(){
-    cout << "Zone: " << zone << endl;
-    cout << "Type: " << type << endl;
+void Request::Display(){
+    cout << "Zone: " << Zone << endl;
+    cout << "Type: " << Type << endl;
 }
 
 void requestNode::display(){

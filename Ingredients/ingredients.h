@@ -16,7 +16,7 @@ using namespace date;
  * Usage example:
  * @code
  * Ingredient I(name, amount);
- * cout << I.Display();
+ * I.Display();
  * @endcode
  */
 class Ingredient{
@@ -38,7 +38,7 @@ class Ingredient{
         }
         
         /**
-        * @brief Displays information on ingredient
+        * @brief Displays information on a ingredient
         *
         * Uses IOstream to display the values
         *

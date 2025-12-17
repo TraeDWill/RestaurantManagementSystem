@@ -4,25 +4,67 @@
 
 using namespace std;
 
-class request{
+/**
+ * @class Request
+ * @brief An individual request 
+ *
+ * This has the information of where the request is from and what type it is
+ * 
+ * Usage example:
+ * @code
+ * Request req;
+ * req.display();
+ * @endcode
+ */
+class Request{
     public: 
-        request(){
-            zone = 0;
-            type = "";
+        /**
+        * @brief Creates a request
+        */
+        Request(){
+            Zone = 0;
+            Type = "";
         }
-        int addRequest(int z, string t);
-        void display();
+        /**
+        * @brief Adds information to a request
+        *
+        * Setter for request object
+        *
+        * @return void
+        */
+        int AddRequest(int z, string t);
+
+        /**
+        * @brief Displays information on a ingredient
+        *
+        * Uses IOstream to display the values
+        *
+        * @return void
+        */
+        void Display();
     private:
-        int zone;
-        string type;
+        int Zone;
+        string Type;
 }
 
-class requestNode{
+/**
+ * @class RequestNode
+ * @brief An individual request node
+ *
+ * Node for stack
+ * 
+ * Usage example:
+ * @code
+ * RequestNode req;
+ * req.GetNext();
+ * @endcode
+ */
+class RequestNode{
     public:
-        requestNode(){
-            next = nullptr;
+        RequestNode(){
+            Next = nullptr;
         }
-        int setNext(RequestNode * temp);
+        int SetNext(RequestNode * temp);
         RequestNode * getNext();
         void display();
     private:
