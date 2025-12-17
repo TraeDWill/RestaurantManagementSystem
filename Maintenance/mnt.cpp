@@ -42,7 +42,7 @@ int mnt::push(int z, string t){
     return 1;
 }
 
-int pop(){
+int mnt::pop(){
     RequestNode * temp = head;
     while(temp->getNext()){
         temp = temp->getNext();

@@ -98,17 +98,64 @@ class RequestNode{
         RequestNode * Next;
 }
 
+/**
+ * @class Mnt
+ * @brief Maintenance System
+ *
+ * Manages stack
+ * 
+ * Usage example:
+ * @code
+ * Mnt main;
+ * main.push(z, t);
+ * @endcode
+ */
 class mnt{
     public:
-        mnt(){
-            head = nullptr;
-            spot = 0;
+        /**
+        * @brief Creates a RequestNode object
+        */
+        Mnt(){
+            Head = nullptr;
+            Spot = 0;
         }
-        int push(int z, string t);
-        int pop();
-        void display();
-        void menu();
+
+        /**
+        * @brief Pushes a request
+        *
+        * Inserts a request into the stack
+        *
+        * @return 1
+        */
+        int Push(int z, string t);
+
+        /**
+        * @brief Removes a request off the top of the stack
+        *
+        * Pops a request off the top of the stack
+        *
+        * @return 1
+        */
+        int Pop();
+
+        /**
+        * @brief Displays information on current request
+        *
+        * Uses RequestNode display method
+        *
+        * @return void
+        */
+        void Display();
+
+        /**
+        * @brief Menu for maintenance
+        *
+        * Output menu to command line
+        *
+        * @return void
+        */
+        void Menu();
     private:
-        requestNode * head;
-        int spot;
+        RequestNode * Head;
+        int Spot;
 }
