@@ -35,7 +35,7 @@ class Request{
         int AddRequest(int z, string t);
 
         /**
-        * @brief Displays information on a ingredient
+        * @brief Displays information on a Request
         *
         * Uses IOstream to display the values
         *

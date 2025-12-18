@@ -4,13 +4,41 @@
 
 using namespace std;
 
+/**
+ * @class Order
+ * @brief An individual order of food 
+ *
+ * Simply shows what the food is and how much it cost
+ * 
+ * Usage example:
+ * @code
+ * Order burger(item, amt);
+ * burger.display();
+ * @endcode
+ */
 class Order{
     public:
+        /**
+        * @brief Creates an Order
+        * 
+        * @param item The name of the food item
+        * @param amt The price of the item
+        *
+        */
         Order(string item, float amt){
             FoodItem = item;
             Price = amt;
         }
-        void display();
+
+        /**
+        * @brief Displays information on a ingredient
+        *
+        * Uses IOstream to display the values
+        *
+        * @return void
+        */        
+        void Display();
+
     private:
         string FoodItem;
         float Price;
