@@ -44,17 +44,60 @@ class Order{
         float Price;
 }
 
+/**
+ * @class OrderNode
+ * @brief Node for an order
+ *
+ * Node used for the queue
+ * 
+ * Usage example:
+ * @code
+ * OrderNode burger()
+ * burger.display();
+ * @endcode
+ */
 class OrderNode{
+        /**
+        * @brief Creates an Order
+        * 
+        * @param item The name of the food item
+        * @param amt The price of the item
+        *
+        */
     public:
-        Ordernode(string item, float amt) : Order(string item, float amt){
-            next = nullptr;
+        Ordernode(string item, float amt) : Order(item, amt){
+            Next = nullptr;
         }
+
+        /**
+        * @brief Retrieves Next
+        *
+        * Next Getter
+        *
+        * @return OrderNode pointer
+        */
         ContactNode * GetNext();
+
+        /**
+        * @brief Connects current node to another via next node
+        *
+        * Setter
+        *
+        * @return void
+        */
         void SetNext(ContactNode * temp);
+
+        /**
+        * @brief Displays order info
+        * 
+        * Runs order display method
+        *
+        * @return void
+        */
         void display();
     private:
-        Order stuff;
-        OrderNode * next;
+        Order Stuff;
+        OrderNode * Next;
 }
 
 class AllOrders{
