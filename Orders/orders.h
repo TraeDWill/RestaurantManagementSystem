@@ -100,15 +100,62 @@ class OrderNode{
         OrderNode * Next;
 }
 
+/**
+ * @class AllOrders
+ * @brief Food ordering system
+ *
+ * The systemthat controls the queue of orders
+ * 
+ * Usage example:
+ * @code
+ * AllOrders all
+ * all.DisplayAll();
+ * @endcode
+ */
 class AllOrders{
     public:
+        /**
+        * @brief Creates a system object
+        */
         Allorders(){
-            tail = nullptr;
+            
+            Tail = nullptr;
         }
-        int enqueue(string item, float amt);
-        int dequeue(string item, float amt);
-        int display_all();
-        void menu();
+        /**
+        * @brief Adds order
+        *
+        *  enqueue order onto queue
+        *
+        * @return int
+        */
+        int Enqueue(string item, float amt);
+
+        /**
+        * @brief Removes an order from the queue
+        *
+        * Dequeues an order
+        *
+        * @return 1 is success 0 is fail
+        */
+        int Dequeue(string item, float amt);
+        
+        /**
+        * @brief Displays all orders
+        *
+        * Traverses queue and displays
+        *
+        * @return void
+        */        
+        int DisplayAll();
+
+         /**
+        * @brief Menu
+        *
+        * allows access to all class methods
+        *
+        * @return void
+        */       
+        void Menu();
     private:
-        OrderNode * tail;
+        OrderNode * Tail;
 }
