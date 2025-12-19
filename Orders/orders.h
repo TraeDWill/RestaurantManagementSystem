@@ -137,7 +137,7 @@ class AllOrders{
         *
         * @return 1 is success 0 is fail
         */
-        int Dequeue(string item, float amt);
+        int Dequeue();
         
         /**
         * @brief Displays all orders

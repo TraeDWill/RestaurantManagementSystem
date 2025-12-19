@@ -18,59 +18,60 @@ void OrderNode::Display(){
 }
 
 int AllOrders::enqueue(string item, float amt){
-    OrderNode * temp = new Ordernode(item, amt);
+    OrderNode * temp = new OrderNode(item, amt);
     OrderNode * curr = nullptr;
 
-    if(!tail){
-        tail = temp;
-        tail->set_next(tail);
+    if(!Tail){
+        Tail = temp;
+        Tail->SetNext(Tail);
     }
     else{
-        curr = tail.GetNext();
-        tail->SetNext(temp);
-        temp->SetNext(curr);
+        curr = Tail.GetNext();
+        Tail->SetNext(temp);
+        Temp->SetNext(curr);
     }
 
     return 1;
 }
 
-int AllOrders::dequeue(string item, float amt){
+int AllOrders::Dequeue(){
     OrderNode * temp = nullptr;
-    Ordernode * curr = nullptr; 
+    OrderNode * curr = nullptr; 
 
-    if(!tail){
+    if(!Tail){
         return nullptr;
     }
-    if(tail->GetNext() == this->tail){
-        delete tail;
-        tail = nullptr;
+    if(Tail->GetNext() == this->Tail){
+        delete Tail;
+        Tail = nullptr;
     }
     
-    temp = tail->GetNext();
+    temp = Tail->GetNext();
     curr = temp;
     
-    while(temp->GetNext() != tail){
+    while(temp->GetNext() != Tail){
         temp = temp->GetNext();
     }
 
     temp->SetNext(curr);
-    tail.display();
-    delete tail;
-    tail = temp;
+    Tail.Display();
+    delete Tail;
+    Tail = temp;
 
     return 1;
     
 }
-void AllOrders::display_all(){
-    OrderNode * temp = tail->GetNext();
+
+void AllOrders::DisplayAll(){
+    OrderNode * temp = Tail->GetNext();
     OrderNode * curr = temp;
-    if(!tail){
+    if(!Tail){
         cout << "No Orders Currently" << endl;
     }
     else{
         while(temp->GetNext() != curr){
-            temp.display();
-            temp = temp.GetNext();
+            temp->Display();
+            temp = temp->GetNext();
         }
     }
 
@@ -78,6 +79,8 @@ void AllOrders::display_all(){
 
 void AllOrders::menu(){
     int choice = 0;
+    string item = "";
+    float amt = 0;
 
     while(choice != 4){
         cout << "Here are your choices:" << endl;
@@ -88,5 +91,30 @@ void AllOrders::menu(){
 
         cin >> choice;
         cin.ignore(1234, '\n');
+
+        switch(choice){
+            case 1:
+                cout << "What is the name of the item?" << endl;
+                cin.get(item, 100, '\n');
+                cin.ignore(1234, '\n');
+
+                cout << "How much does it cost" << endl;
+                cin >> amt; 
+                cin.ignore(1234, '\n');
+
+                enqueue(item, amt);
+            
+            case 2:
+                Dequeue();
+
+            case 3:
+                DisplayAll();
+            
+            case 4: 
+                cout << "Exiting Menu" << endl;
+            
+            default: 
+                cout << "Wrong Choice" << endl;
+        }
     }
 }
