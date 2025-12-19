@@ -10,11 +10,11 @@ OrderNode * OrderNode::GetNext(){
 }
 
 void OrderNode::SetNext(OrderNode * temp){
-    next = temp;
+    Next = Temp;
 }
 
-void OrderNode::display(){
-    stuff.display();
+void OrderNode::Display(){
+    Stuff.Display();
 }
 
 int AllOrders::enqueue(string item, float amt){
