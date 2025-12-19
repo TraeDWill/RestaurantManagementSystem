@@ -1,12 +1,12 @@
 #include "orders.h"
 
-void Order::display(){
+void Order::Display(){
     cout << "Item: " << FoodItem << endl;
     cout << "Price: " << Price << endl;
 }
 
 OrderNode * OrderNode::GetNext(){
-    return next;
+    return Next;
 }
 
 void OrderNode::SetNext(OrderNode * temp){
