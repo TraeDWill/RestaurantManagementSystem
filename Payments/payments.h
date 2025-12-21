@@ -16,10 +16,10 @@
  */
 class Payment{
         /**
-        * @brief Creates an Order
+        * @brief Creates a Payment object
         * 
-        * @param Item The item type
-        * @param Amt The price of the item
+        * @param i the item type
+        * @param a The price of the item
         *
         */
     public:
@@ -72,26 +72,112 @@ class Payment{
         string Item;
 }
 
+/**
+ * @class P_Node
+ * @brief Individual payment node for bst
+ * 
+ * Usage example:
+ * @code
+ * P_Node pay(a, i);
+ * num = pay.GetAmt();
+ * @endcode
+ */
 class P_Node{
+
     public:
+        /**
+        * @brief Creates a Payment node
+        * 
+        * @param i item type
+        * @param a The amount of money
+        *
+        */
         P_Node(float a, string i) : Payment(a, i){
             left = nullptr;
             right = nullptr;
         }
+
+        /**
+        * @brief Gets right pointer
+        *
+        * getter
+        *
+        * @return P_Node pointer
+        */  
         P_Node * GetRight();
+
+        /**
+        * @brief Gets left pointer
+        *
+        * getter
+        *
+        * @return P_Node pointer
+        */  
         P_Node * GetLeft();
+
+        /**
+        * @brief Sets left pointer
+        *
+        * setter
+        *
+        * @return void
+        */  
         void SetLeft(P_Node * temp);
-        void SetRight(P_Node * tmep);
-        int compare(float a);
-        int match(string i);
-        void price(float a);
+
+        
+        /**
+        * @brief Sets right pointer
+        *
+        * setter
+        *
+        * @return void
+        */  
+        void SetRight(P_Node * temp);
+
+        
+        /**
+        * @brief Compares amount of money
+        *
+        * @return int
+        */  
+        int Compare(float a);
+
+        
+        /**
+        * @brief Matches type
+        *
+        * @return int
+        */  
+        int Match(string i);
+
+        
+        /**
+        * @brief Price setter
+        *
+        * @return void
+        */  
+        void Price(float a);
+
+        
+        /**
+        * @brief Getter for amount
+        *
+        * @return float
+        */  
         float GetAmt();
-        void display();
+
+        
+        /**
+        * @brief Calls payment display
+        *
+        * @return P_Node pointer
+        */  
+        void Display();
 
     private:
-        P_Node * left;
-        p_Node * right;
-        Payment pay;
+        P_Node * Left;
+        p_Node * Right;
+        Payment Pay;
 }
 
 class Economy{
