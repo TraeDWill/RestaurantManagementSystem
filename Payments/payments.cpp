@@ -71,23 +71,23 @@ void P_Node::Price(float a){
 }
 
 P_Node * P_Node::GetRight(){
-    return right;
+    return Right;
 }
 
 P_Node * P_Node::GetLeft(){
-    return left;
+    return Left;
 }
 
-void SetLeft(P_Node * temp){
-    left = temp;
+void P_Node::SetLeft(P_Node * temp){
+    Left = temp;
 }
 
-void SetRight(P_Node * temp){
-    right = temp;
+void P_Node::SetRight(P_Node * temp){
+    Right = temp;
 }
 
-int P_Node::compare(float a){
-    return pay.compare(a);
+int P_Node::Compare(float a){
+    return Pay.Compare(a);
 }
 
 int Economy::insert(){
