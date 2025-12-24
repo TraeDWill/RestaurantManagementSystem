@@ -16,14 +16,14 @@ int Payment::Update(){
             cin >> a;
             cin.ignore(1234, '\n');
 
-            amt = a;
+            Amt = a;
             return 1;
         case 2:
             cout << "Whats the new name of the item?" << endl;
             cin.get(i, 50, '\n');
             cin.ignore(1234, '\n');
 
-            item = i;
+            Item = i;
 
             return 1;
         case 3:
@@ -35,8 +35,8 @@ int Payment::Update(){
             cin.get(i, 50, '\n');
             cin.ignore(1234, '\n');
 
-            amt = a;
-            item = i;
+            Amt = a;
+            Item = i;
             return 1;
         default:
             cout << "Incorrect choice" << endl;
@@ -46,28 +46,28 @@ int Payment::Update(){
 }
 
 void Payment::price(float a){
-    amt = a;
+    Amt = a;
 }
 
-int Payment::compare(float a){
-    if(amt > a){
+int Payment::Compare(float a){
+    if(Amt > a){
         return 0; 
     }
-    if(amt < a){
+    if(Amt < a){
         return 1;
     }
     return 2;
 }
 
 float Payment::GetAmt(){
-    return amt;
+    return Amt;
 }
 
 float P_Node::GetAmt(){
-    return pay.GetAmt();
+    return Pay.GetAmt();
 }
-void P_Node::price(float a){
-    pay.price(a);
+void P_Node::Price(float a){
+    Pay.Price(a);
 }
 
 P_Node * P_Node::GetRight(){
