@@ -12,7 +12,7 @@
     }
 
     ContactNode * ContactNode::MoveNext(){
-        return Next;
+        return Next.get();
     }
 
     void ContactNode::SetNext(ContactNode * Temp){
@@ -20,11 +20,11 @@
     }
 
     void ContactNode::Display(){
-        List.Display();
+        Local.Display();
     }
 
     int ContactNode::CompName(string CName){
-        return List.CompName(CName);
+        return Local.CompName(CName);
     }
 
     int ContactList::AddContact(string CName, long CPhone){
@@ -33,7 +33,7 @@
         int Key = HashFunction(CName);
         
         List[Key] = new ContactNode;
-        Temp = List[Key];
+        Temp = List[Key].get();
         
         if(!Temp){
             Temp = new ContactNode(CName, CPhone);
@@ -54,7 +54,7 @@
         ContactNode * Add = nullptr;
         int Key = HashFunction(CName);
         
-        Temp = List[Key];
+        Temp = List[Key].get();
 
         while(Temp && Temp->CompName(CName) == 0){
             Curr = Temp;

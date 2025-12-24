@@ -124,7 +124,7 @@ class ContactNode{
         void SetNext(ContactNode * Temp);
     private:
         Contact Local;
-        ContactNode * Next;
+        unique_ptr<ContactNode> Next;
 };
 
 /**
@@ -205,5 +205,5 @@ class ContactList{
         */    
         int HashFunction(string CName);
     private:
-        ContactNode * List[TABLE_SIZE];
+        unique_ptr<ContactNode> List[TABLE_SIZE];
 };
