@@ -90,10 +90,10 @@ int P_Node::Compare(float a){
     return Pay.Compare(a);
 }
 
-int Economy::insert(){
+int Economy::Insert(){
     float a = 0;
     string i = "";
-    P_Node * temp = root;
+    P_Node * temp = Root;
 
     cout << "How much did the order cost?" << endl;
     cin >> a;
@@ -103,26 +103,26 @@ int Economy::insert(){
     cin.get(i, 50, '\n');
     cin.ignore(1234, '\n');
     
-    return insert(temp, a, i);
+    return Insert(temp, a, i);
 }
 
-int Economy::insert(P_Node * temp, float a, string i){
-    if(!root){
-        root = new P_Node(a, i);
+int Economy::Insert(P_Node * temp, float a, string i){
+    if(!Root){
+        Root = new P_Node(a, i);
         return 1;
     }
-    if(temp->compare(a) == 0){
-        return insert(temp->GetLeft(), a, i);
+    if(temp->Compare(a) == 0){
+        return Insert(temp->GetLeft(), a, i);
     }
-    return insert(temp->GetRight(), a, i);
+    return Insert(temp->GetRight(), a, i);
 
 }
 
-int Economy::remove(){
+int Economy::Remove(){
 
     float a = 0;
     string i = "";
-    P_Node * temp = root;
+    P_Node * temp = Root;
 
     cout << "How much did the order cost?" << endl;
     cin >> a;
@@ -132,15 +132,15 @@ int Economy::remove(){
     cin.get(i, 50, '\n');
     cin.ignore(1234, '\n');
 
-    return remove(temp, a, i);
+    return Remove(temp, a, i);
 }
 
-int Economy::remove(P_Node * temp, float a, string i){
+int Economy::Remove(P_Node * temp, float a, string i){
     if(!temp){
         return 0;
     }
-    if(temp->compare(a) == 2){
-        if(temp->match(i) == 0){
+    if(temp->Compare(a) == 2){
+        if(temp->Match(i) == 0){
             if(temp->GetRight() && temp->GetLeft()){
                 delete temp;
                 temp = nullptr;
@@ -153,7 +153,7 @@ int Economy::remove(P_Node * temp, float a, string i){
                     tail = curr;
                     curr = curr->GetLeft();
                 }
-                temp.price(curr.GetAmt());
+                temp.Price(curr.GetAmt());
                 delete curr;
                 curr = nullptr;
                 tail->SetLeft(nullptr);
@@ -162,14 +162,14 @@ int Economy::remove(P_Node * temp, float a, string i){
             else{
                 if(temp->GetRight()){
                     P_Node * curr = temp->GetRight();
-                    temp.price(curr.GetAmt());
+                    temp.Price(curr.GetAmt());
                     delete curr;
                     temp.SetRight(nullptr);
                     return 1;
                 }
                 else{
                     P_Node * curr = temp->GetLeft();
-                    temp.price(curr.GetAmt());
+                    temp.Price(curr.GetAmt());
                     delete curr;
                     temp.SetLeft(nullptr);
                     return 1;
@@ -177,32 +177,32 @@ int Economy::remove(P_Node * temp, float a, string i){
             }
         }
         else{
-            return remove(temp->GetRight(), a, i);
+            return Remove(temp->GetRight(), a, i);
         }
     }
-    if(temp->compare(a) == 0){
-        return remove(temp->GetLeft(), a, i);
+    if(temp->Compare(a) == 0){
+        return Remove(temp->GetLeft(), a, i);
     }
-    return remove(temp->GetRight(), a, i);
+    return Remove(temp->GetRight(), a, i);
 
 }
 
-int Economy::display_all(){
-    return display_all(root);
+int Economy::DisplayAll(){
+    return DisplayAll(Root);
 }
 
 int Economy::display_all(P_Node * temp){    
     if(!temp){
         return 0;
     }
-    display_all(temp->GetLeft());
-    temp.display();
-    display_all(temp->GetRight());
+    DisplayAll(temp->GetLeft());
+    temp.Display();
+    DisplayAll(temp->GetRight());
     return 0;
 
 }
 
-void Economy::menu(){
+void Economy::Menu(){
     int choice = 0;
 
     while(choice != 4){
@@ -213,11 +213,11 @@ void Economy::menu(){
 
         switch(choice){
             case 1:
-                root->insert();
+                Root->Insert();
             case 2:
-                root->remove();
+                Root->Remove();
             case 3:
-                root->display_all();
+                Root->DisplayAll();
             case 4:
                 cout << "Exiting Payments" << endl;
             default:
