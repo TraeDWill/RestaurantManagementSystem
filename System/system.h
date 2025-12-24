@@ -11,11 +11,11 @@ using namespace std;
 
 class System{
     public:
-        System() : AllOrders(), inventory(), Mnt(), ContactList(), Payment(){};\
-        void menu();
+        System() : AllOrders(), Inventory(), Mnt(), ContactList(), Payment(){};\
+        void Menu();
     private:
         ContactList contacts;
-        inventory stock;
+        Inventory stock;
         AllOrders orders;
         Mnt mnt;
         Economy money;
