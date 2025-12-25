@@ -56,22 +56,18 @@
         
         Temp = List[Key].get();
 
-        while(Temp && Temp->CompName(CName) == 0){
+        while(Temp->Next.get() && Temp->Next->CompName(CName) == 0){
             Curr = Temp;
             Temp = Temp->MoveNext();
         }
 
-        if(Temp){
+        if(Temp->Next.get()){
             if(!Temp->MoveNext()){
-                delete Temp;
-                Temp = nullptr;
+                Temp->Next = move(nullptr);
             }
             else{
-                Add = Temp->MoveNext();
-                Curr->SetNext(Add);
-                delete Temp;
-                Temp = nullptr;
-
+                Add = Temp->Next.get();
+                Curr->Next = move(temp->Next);
             }
             return 1;
         }
