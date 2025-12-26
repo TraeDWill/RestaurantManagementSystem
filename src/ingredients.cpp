@@ -1,4 +1,4 @@
-#include "ingredients.h"
+#include "../include/ingredients.h"
 
 void Ingredient::Display(){
     cout << "Ingredient Name" << IngName << endl;

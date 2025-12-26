@@ -1,4 +1,4 @@
-#include "contacts.h"
+#include "../include/contacts.h"
 
     int Contact::CompName(string CName){
         if(Name == CName)

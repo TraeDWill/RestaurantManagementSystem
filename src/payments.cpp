@@ -1,4 +1,4 @@
-#include "payments.h" 
+#include "../include/payments.h" 
 
 int Payment::Update(){
     float a = 0;
