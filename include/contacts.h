@@ -20,7 +20,14 @@ const int TABLE_SIZE = 101;
  */
 class Contact{
     public:
-       /**
+        /**
+        * @brief Default Constructor
+        */
+        Contact(){
+            Name = "";
+            CPhone = 0;
+        }
+        /**
         * @brief Constructs a node for category LLL 
         *
         * @param CName Name of category being implemented
@@ -39,7 +46,7 @@ class Contact{
         *
         * @return 1 is same 0 if not
         */
-        int CompName(string CName);
+        bool CompName(string CName);
 
         /**
         * @brief Displays information on ingredient
