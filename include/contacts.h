@@ -7,35 +7,35 @@ using namespace std;
 const int TABLE_SIZE = 101;
 
 /**
- * @class Contact
+ * @class contact
  * @brief Basic contact object
  *
  * This is a basic contact card with name and phone number
  *
  * Usage example:
  * @code
- * Contact wii("Bob", 5555555555);
- * wii.Display();
+ * contact wii("Bob", 5555555555);
+ * wii.display();
  * @endcode
  */
-class Contact{
+class contact{
     public:
         /**
         * @brief Default Constructor
         */
-        Contact(){
-            Name = "";
-            CPhone = 0;
+        contact(){
+            name = "";
+            cPhone = 0;
         }
         /**
         * @brief Constructs a node for category LLL 
         *
-        * @param CName Name of category being implemented
-        * @param CPhone Phone Number
+        * @param cName Name of category being implemented
+        * @param cPhone Phone Number
         */
-        Contact(string CName, long CPhone){
-            Name = CName;
-            Phone = CPhone;
+        Contact(string cName, long cPhone){
+            name = cName;
+            phone = cPhone;
         }
         ~Contact(){}
 
@@ -46,7 +46,7 @@ class Contact{
         *
         * @return 1 is same 0 if not
         */
-        bool CompName(string CName);
+        bool compName(string cName);
 
         /**
         * @brief Displays information on ingredient
@@ -55,43 +55,40 @@ class Contact{
         *
         * @return void
         */
-        void Display();
+        void display();
 
     private:
-        string Name;
-        long Phone;
+        string name;
+        long phone;
 
 };
 
 /**
- * @class ContactNode
+ * @class contactNode
  * @brief Node wrapped around Contact
  *
  * Node for Contact
  *
  * Usage example:
  * @code
- * ContactNode Temp(Name, Phone);
- * Temp.Display(); 
+ * contactNode temp(name, phone);
+ * temp.display(); 
  * @endcode
  */
-class ContactNode{
+class contactNode{
     public:
         /**
         * @brief Constructs a node for category LLL 
         *
-        * @param CName Name of category being implemented
-        * @param CPhone Phone Number
+        * @param cName Name of category being implemented
+        * @param cPhone Phone Number
         */
-        ContactNode(string CName, long CPhone): local(CName, CPhone)
+        contactNode(string cName, long cPhone): local(cName, cPhone)
         {
-            Next = nullptr;
+            next = nullptr;
         }
-        ~ContactNode(){
-            if(Next){
-                delete Next;
-                Next = nullptr;
-            }
+        ~contactNode(){
+
         }
 
         /**
@@ -101,7 +98,7 @@ class ContactNode{
         *
         * @return void
         */
-        void Display();
+        void display();
 
         /**
         * @brief Returns Next
@@ -110,7 +107,7 @@ class ContactNode{
         *
         * @return ContactNode pointer
         */
-        ContactNode * MoveNext();
+        ContactNode * moveNext();
 
         /**
         * @brief Compares names
@@ -119,7 +116,7 @@ class ContactNode{
         *
         * @return 1 for true 0 for false
         */
-        int CompName(string CName);
+        int compName(string cName);
 
         /**
         * @brief Sets next
@@ -128,22 +125,22 @@ class ContactNode{
         *
         * @return void
         */
-        void SetNext(ContactNode * Temp);
+        void setNext(contactNode * temp);
     private:
-        Contact Local;
-        unique_ptr<ContactNode> Next;
+        contact local;
+        unique_ptr<contactNode> next;
 };
 
 /**
- * @class ContactList
+ * @class contactList
  * @brief System for contacts
  *
  * Hash table class
  *
  * Usage example:
  * @code
- * ContactNode Temp(Name, Phone);
- * Temp.Display(); 
+ * contactList temp;
+ * temp.DisplayContact(); 
  * @endcode
  */
 class ContactList{
@@ -151,20 +148,12 @@ class ContactList{
         /**
         * @brief Constructs a Hash table for contacts
         */
-        ContactList(){
+        contactList(){
             for(int i = 0; i < TABLE_SIZE; ++i){
                 List[i] = nullptr;
             }
         }
-        ~ContactList(){
-            for(int i = 0; i < TABLE_SIZE; ++i){
-                if(List[i]){
-                    delete List[i];
-                    List[i] = nullptr;
-                }
-                delete [] List;
-            }
-        }
+        ~contactList(){}
 
         /**
         * @brief Menu
@@ -173,7 +162,7 @@ class ContactList{
         *
         * @return void
         */        
-        void Menu();
+        void menu();
 
         /**
         * @brief Adds Contact
@@ -182,7 +171,7 @@ class ContactList{
         *
         * @return 1 for success
         */            
-        int AddContact(string CName, long CPhone);
+        int addContact(string cName, long cPhone);
 
         /**
         * @brief Removes contact
@@ -191,7 +180,7 @@ class ContactList{
         *
         * @return 1 for success and 0 for failure
         */    
-        int RemoveContact(string CName);
+        int removeContact(string cName);
 
         /**
         * @brief Displays contact
@@ -200,7 +189,7 @@ class ContactList{
         *
         * @return void
         */    
-        void DisplayContact(string CName);
+        void displayContact(string cName);
 
         /**
         * @brief Hash Function
@@ -210,7 +199,7 @@ class ContactList{
         *
         * @return hash int
         */    
-        int HashFunction(string CName);
+        int hashFunction(string cName);
     private:
-        unique_ptr<ContactNode> List[TABLE_SIZE];
+        unique_ptr<contactNode> List[TABLE_SIZE];
 };
