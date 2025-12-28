@@ -49,60 +49,60 @@ int contactList::addContact(string cName, long cPhone){
     return 1;
 
 }
-int contactList::removeContact(string CName){
-    ContactNode * Temp = nullptr;
-    ContactNode * Curr = nullptr;
-    ContactNode * Add = nullptr;
-    int Key = HashFunction(CName);
+int contactList::removeContact(string cName){
+    contactNode * temp = nullptr;
+    contactNode * curr = nullptr;
+    contactNode * add = nullptr;
+    int key = hashFunction(CName);
     
-    Temp = List[Key].get();
+    temp = list[key].get();
 
-    while(Temp->Next.get() && Temp->Next->CompName(CName) == 0){
-        Curr = Temp;
-        Temp = Temp->MoveNext();
+    while(temp->next.get() && temp->next->compName(cName) == 0){
+        Curr = temp;
+        temp = temp->moveNext();
     }
 
-    if(Temp->Next.get()){
-        if(!Temp->MoveNext()){
-            Temp->Next = move(nullptr);
+    if(temp->next.get()){
+        if(!temp->moveNext()){
+            temp->next = move(nullptr);
         }
         else{
-            Add = Temp->Next.get();
-            Curr->Next = move(temp->Next);
+            add = temp->next.get();
+            curr->next = move(temp->next);
         }
         return 1;
     }
     return 0;
 }
-void ContactList::DisplayContact(string CName){
-    int Key = HashFunction(CName);
-    ContactNode * Temp = nullptr;
+void contactList::displayContact(string cName){
+    int key = hashFunction(cName);
+    contactNode * temp = nullptr;
 
-    Temp = List[Key];
+    temp = list[key];
 
-    while(Temp && Temp->CompName(CName) != 1){
-        Temp = Temp->MoveNext();
+    while(temp && temp->compName(cName) != 1){
+        temp = temp->moveNext();
     }
-    if(Temp){
-        Temp.Display();
+    if(temp){
+        temp.display();
     }
     else{
         cout << "No such contact." << endl;
     }
 
 }
-int ContactList::HashFunction(string CName){
-        unsigned long Hash = 0;
-        for (char c : Key)
-            Hash = (Hash * 31 + c) % TABLESIZE;
-        return Hash;
+int contactList::hashFunction(string cName){
+        unsigned long hash = 0;
+        for (char c : key)
+            hash = (hash * 31 + c) % TABLESIZE;
+        return hash;
 
 }
 
-void ContactList::Menu(){
-    string CName;
-    long CPhone;
-    int Choice;
+void contactList::menu(){
+    string cName;
+    long cPhone;
+    int choice;
     
     cout << "Would you like to:" << endl;
     cout << "1. Add contact" << endl;
@@ -110,29 +110,29 @@ void ContactList::Menu(){
     cout << "3. Display a contact" << endl;
     cout << "4. End Menu" << endl;
 
-    while(Choice != 4){
-        switch(Choice){
+    while(choice != 4){
+        switch(choice){
             case 1:
                 cout << "Which contact would you like to add?" << endl;
-                cin.get(CName, 1234, '\n');
+                cin.get(cName, 1234, '\n');
                 cin.ignore(1234, '\n');
                 cout << "What is the phone number?" << endl;
-                cin >> CPhone;
+                cin >> cPhone;
                 cin.ignore(1234, '\n');
 
-                AddContact(CName, CPhone);
+                addContact(cName, cPhone);
             case 2:
                 cout << "Which contact would you like to remove?" << endl;
-                cin.get(CName, 50, '\n');
+                cin.get(cName, 50, '\n');
                 cin.ignore(1234, '\n');
 
-                RemoveContact(CName);
+                removeContact(cName);
             case 3:
                 cout << "Which contact would you like to display?" << endl;
-                cin.get(CName, 50, '\n');
+                cin.get(cName, 50, '\n');
                 cin.ignore(1234, '\n');
 
-                DisplayContact(CName);
+                displayContact(cName);
             case 4:
                 cout << "Exiting Menu" << endl;
             default:
