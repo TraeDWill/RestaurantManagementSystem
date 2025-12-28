@@ -17,7 +17,7 @@ contactNode * contactNode::moveNext(){
 }
 
 void contactNode::setNext(contactNode * temp){
-    next = Temp;
+    next = temp;
 }
 
 void contactNode::display(){

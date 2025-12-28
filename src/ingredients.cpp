@@ -1,13 +1,13 @@
 #include "../include/ingredients.h"
 
-void Ingredient::Display(){
-    cout << "Ingredient Name" << IngName << endl;
-    cout << "Amount in Lbs" << AmtInLbs << endl;
+void ingredient::display(){
+    cout << "Ingredient Name" << ingName << endl;
+    cout << "Amount in Lbs" << amtInLbs << endl;
 }
 
-int IngNode::Next(IngNode *& Temp){
-    if(Next){
-        Temp = Next;
+int ingNode::next(ingNode *& temp){
+    if(next){
+        temp = next;
     }
     else{
         return 0;
@@ -15,11 +15,11 @@ int IngNode::Next(IngNode *& Temp){
     return 1;
 }
 
-int Ingredient::NameComp(char * Name){
-    int Num = strcmp(IngName, Name);
-    if(Num < 0) 
+int ingredient::nameComp(char * name){
+    int num = strcmp(ingName, name);
+    if(num < 0) 
         return -1;
-    else if(Num > 0)
+    else if(num > 0)
         return 1;
     return 0;
 }
