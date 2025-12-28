@@ -120,8 +120,8 @@ class IngNode{
         void Connect(IngNode *& Temp);
 
     private:
-        Ingredient Ing;
-        IngNode * Next;
+        ingredient ing;
+        unique_ptr<ingNode> next;
 }
 
 /**

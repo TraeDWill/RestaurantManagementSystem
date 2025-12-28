@@ -24,119 +24,119 @@ int ingredient::nameComp(char * name){
     return 0;
 }
 
-void IngNode::Connect(Ingredient *& Temp){
-    Next = Temp;
+void ingNode::connect(ingredient *& temp){
+    next = temp;
 }
 
-int Ingredient::Add(int Add){
-    AmtInLbs += Add;
-    return AmtInLbs;
+int ingredient::add(int add){
+    amtInLbs += add;
+    return amtInLbs;
 }
 
-void Ingredient::Remove(){
-    delete IngName;
+void ingredient::remove(){
+    delete ingName;
 }
 
-int CatNode::AddIngredient(char * Name, int Amt){       
-    int Result = 0;
-    int Amt = 0;
-    IngNode * Temp = nullptr;
-    IngNode * Trail = nullptr;
-    IngNode * Insert = nullptr;
+int catNode::addIngredient(char * name, int amt){       
+    int result = 0;
+    int amt = 0;
+    ingNode * temp = nullptr;
+    ingNode * trail = nullptr;
+    ingNode * insert = nullptr;
     
     cout << "How many lbs(in whole numbers) rounded to the lower number is there of this item?" << endl;
 
-    if(!Head){
-        Head = new IngNode(Name, Amt);
+    if(!head){
+        head = new ingNode(name, amt);
     }
     else{
-        Temp = Head;
-        Trail = Head;
-        while(Temp && (Temp->NameComp(Name) == -1)){
-            Trail = Temp;
-            Result = Temp->Next(Temp);
+        temp = head;
+        trail = head;
+        while(temp && (temp->nameComp(name) == -1)){
+            trail = temp;
+            result = temp->next(temp);
         }
-        if(!Temp){
-            Temp = new IngNode(Name, Amt);
+        if(!temp){
+            temp = new ingNode(name, amt);
         }
-        else if(Result == 1){
-            Insert = new IngName(Name, Amt);
-            Trail->Connect(Insert);
-            Insert->Connect(Temp);
+        else if(result == 1){
+            insert = new ingName(name, amt);
+            trail->connect(insert);
+            insert->connect(temp);
         }
         else{
-            cout << "New amount is:" << Temp->Add(Amt) << endl;
+            cout << "New amount is:" << temp->add(amt) << endl;
         }
     }
     return 1;
 }
 
-int CatNode::RemoveIngredient(char * ing){
-    IngNode * Temp = Head;
-    IngNode * Trail;
-    IngNode * Lead;
-    if(!Head){
+int catNode::removeIngredient(char * ing){
+    ingNode * temp = head;
+    ingNode * trail;
+    ingNode * lead;
+    if(!head){
         return 0;
     }
-    while(Temp && Temp->NameComp(Ing) != 0){
-        Trail = Temp;
-        Temp->Next(Temp);
+    while(temp && temp->nameComp(ing) != 0){
+        trail = temp;
+        temp->next(temp);
     }
-    if(!Temp){
+    if(!temp){
         return 0;
     }
-    Temp->Next(Lead);
-    Temp->Remove();
-    delete Temp;
-    Trail->Connect(Lead);
+    temp->next(lead);
+    temp->remove();
+    delete temp;
+    trail->connect(lead);
     return 1;
 }
 
-int CatNode::FindIngredient(char * Ing){
-    IngNode * Temp = Head;
+int catNode::findIngredient(char * ing){
+    ingNode * temp = head;
 
-    while(Temp && Temp->NameComp(Ing) != 0){
-        Temp->Next(Temp);
+    while(temp && temp->nameComp(ing) != 0){
+        temp->next(temp);
     }
-    if(Temp){
-        Temp.Display();
+    if(temp){
+        temp.display();
         return 1;
     }
     return 0;
 }
 
-int CatNode::DispAllIng(){
-    IngNode * Temp = Head;
-    if(!Temp){
+int catNode::dispAllIng(){
+    ingNode * temp = head;
+    if(!temp){
         return 0;
     }
-    while(Temp){
-        Temp.Display();
-        Temp->Next(Temp);
+    while(temp){
+        temp.display();
+        temp->next(temp);
     }
     return 1;
 }
 
-CatNode * CatNode::GetNext(){
-    return Next;
+catNode * catNode::getNext(){
+    return next;
 }
 
-int CatNode::Next(Category *& Temp){
-    Next = Temp;
+int catNode::next(category *& temp){
+    next = temp;
     return 1;
 }
 
-int Category::Comp(char * Cat){
-    return strcmp(Cat, Type);
+int category::comp(char * cat){
+    return strcmp(cat, type);
 }
 
-void CatNode::End(){
-    IngName * Temp = nullptr;
+void catNode::end(){
+    ingName * temp = nullptr;
 
-    delete Type;
+    delete type;
 
-    if(Head){
-        while(Head){
+    if(head){
+        while(head){
             Temp = Head->GetNext();
             Head.Remove();
             delete Head;
