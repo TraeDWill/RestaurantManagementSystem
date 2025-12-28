@@ -1,22 +1,22 @@
 #include "../include/contacts.h"
 
 
-bool contact::compName(string CName){
-    string ctemp = CName.lower();
-    temp = Name.lower();
+bool contact::compName(string cName){
+    string ctemp = cName.lower();
+    temp = name.lower();
     return temp == ctemp;
 }
 
 void contact::display(){
-    cout << "Contact Name:" << Name << endl;
-    cout << "Contact Number:" << Phone << endl;
+    cout << "Contact Name:" << name << endl;
+    cout << "Contact Number:" << phone << endl;
 }
 
 contactNode * contactNode::moveNext(){
     return next.get();
 }
 
-void contactNode::setNext(contactNode * Temp){
+void contactNode::setNext(contactNode * temp){
     next = Temp;
 }
 
@@ -28,28 +28,28 @@ int contactNode::compName(string cName){
     return local.compName(cName);
 }
 
-int ContactList::AddContact(string CName, long CPhone){
-    ContactNode * Temp = nullptr;
-    ContactNode * Curr = nullptr;
-    int Key = HashFunction(CName);
+int contactList::addContact(string cName, long cPhone){
+    contactNode * temp = nullptr;
+    contactNode * curr = nullptr;
+    int key = hashFunction(cName);
     
-    List[Key] = new ContactNode;
-    Temp = List[Key].get();
+    list[key] = new contactNode;
+    temp = list[key].get();
     
-    if(!Temp){
-        Temp = new ContactNode(CName, CPhone);
+    if(!temp){
+        temp = new contactNode(cName, cPhone);
     }
     else{
-        while(Temp->MoveNext()){
-            Temp = Temp->MoveNext();
+        while(temp->moveNext()){
+            temp = temp->moveNext();
         }
-        Curr = Temp->MoveNext();
-        Curr = new ContactNode(CName, CPhone);
+        curr = temp->moveNext();
+        curr = new contactNode(cName, cPhone);
     }
     return 1;
 
 }
-int ContactList::RemoveContact(string CName){
+int contactList::removeContact(string CName){
     ContactNode * Temp = nullptr;
     ContactNode * Curr = nullptr;
     ContactNode * Add = nullptr;
