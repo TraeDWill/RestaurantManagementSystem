@@ -116,7 +116,7 @@ class contactNode{
         *
         * @return 1 for true 0 for false
         */
-        int compName(string cName);
+        bool compName(string cName);
 
         /**
         * @brief Sets next
