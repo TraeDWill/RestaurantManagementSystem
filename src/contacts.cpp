@@ -49,7 +49,7 @@ int contactList::addContact(string cName, long cPhone){
     return 1;
 
 }
-int contactList::removeContact(string cName){
+bool contactList::removeContact(string cName){
     contactNode * temp = nullptr;
     contactNode * curr = nullptr;
     contactNode * add = nullptr;
@@ -70,9 +70,9 @@ int contactList::removeContact(string cName){
             add = temp->next.get();
             curr->next = move(temp->next);
         }
-        return 1;
+        return true;
     }
-    return 0;
+    return false;
 }
 void contactList::displayContact(string cName){
     int key = hashFunction(cName);

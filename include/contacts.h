@@ -180,7 +180,7 @@ class ContactList{
         *
         * @return 1 for success and 0 for failure
         */    
-        int removeContact(string cName);
+        bool removeContact(string cName);
 
         /**
         * @brief Displays contact
