@@ -15,7 +15,7 @@ TEST_CASE("Contact compares names correctly.", "[contactNode]") {
     REQUIRE_FALSE(con.compName("No"));
 }
 
-TEST_CASE("Contact compares names correctly.", "[contactList]") {
+TEST_CASE("Adds contact correctly", "[contactList]") {
     contactList con;
 
     con.addContact("Yes", 0);
@@ -27,3 +27,9 @@ TEST_CASE("Contact compares names correctly.", "[contactList]") {
     REQUIRE_FALSE(con.compName("No"));
 }
 
+TEST_CASE("Removes Contact Correctly", "[contactList]") {
+    contactList con;
+    string yes = "yes";
+    int place = con.hashFunction(yes);
+    REQUIRE(place < TABLE_SIZE && place > 0);
+}
