@@ -125,7 +125,7 @@ class ingNode{
 }
 
 /**
- * @class Category
+ * @class category
  * @brief An individual Category
  *
  * This manages the information of a category along with a full LLL of ingredients 
@@ -133,22 +133,22 @@ class ingNode{
  *
  * Usage example:
  * @code
- * Ingredient I(name, amount);
+ * category I(name, amount);
  * cout << I.Display();
  * @endcode
  */
-class Category{
+class category{
     public:
         /**
         * @brief Constructs a category object with the type name in parameter
         *
-        * @param TName Ingredient name for ingredient object constructor
+        * @param tName Ingredient name for ingredient object constructor
         */
-        Category(char * TName){
-            type = new char[strlen(TName)+1];
-            strcpy(Type, TName);
-            IngAmount = 0;
-            Head = nullptr;
+        Category(char * tName){
+            type = new char[strlen(tName)+1];
+            strcpy(type, tName);
+            ingAmount = 0;
+            head = nullptr;
         }
 
         /**
@@ -158,11 +158,11 @@ class Category{
         *
         * @return result of the strcmp
         */
-        int TComp(char * T);
+        int tComp(char * t);
 
     private:
-        char * Type;
-        int IngAmount;
+        char * type;
+        int ingAmount;
 };
 
 /**
