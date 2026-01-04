@@ -89,16 +89,16 @@ class ingredient{
  * ing->connect(temp); //Sets ing's next to temp
  * @endcode
  */
-class IngNode{
+class ingNode{
 
     public:
         /**
         * @brief Constructs an Ingredient Node for LLL
         *
-        * @param IName Ingredient name for ingredient object constructor
-        * @param IAmount Ingredient amount in lbs for ingredient object constructor
+        * @param iName Ingredient name for ingredient object constructor
+        * @param iAmount Ingredient amount in lbs for ingredient object constructor
         */
-        IngNode(char * IName, int IAmount): Ingredient(IName, IAmount){
+        ingNode(char * iName, int iAmount): Ingredient(iName, iAmount){
             next = nullptr;
         }
         /**
@@ -108,7 +108,7 @@ class IngNode{
         *
         * @return Successful int
         */
-        int Next(IngNode *& Temp);
+        int next(ingNode *& temp);
 
         /**
         * @brief Connects current node to temp
@@ -117,7 +117,7 @@ class IngNode{
         *
         * @return void
         */
-        void Connect(IngNode *& Temp);
+        void connect(ingNode *& temp);
 
     private:
         ingredient ing;
