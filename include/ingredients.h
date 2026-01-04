@@ -257,7 +257,7 @@ class catNode{
 }
 
 /**
- * @class Inventory
+ * @class inventory
  * @brief Whole System
  *
  * This inventory system manages category LLL and menu system
@@ -268,13 +268,13 @@ class catNode{
  * inv.AddCategory();
  * @endcode
  */
-class Inventory{
+class inventory{
     public:
         /**
         * @brief Constructs an inventory
         */
-        Inventory(){
-            Head = nullptr;
+        inventory(){
+            head = nullptr;
         }
         /**
         * @brief Adds Category
@@ -283,7 +283,7 @@ class Inventory{
         *
         * @return 1 on success
         */
-        int AddCategory();
+        int addCategory();
 
         /**
         * @brief Removes a category
@@ -292,7 +292,7 @@ class Inventory{
         *
         * @return 1 on success, 0 on failure
         */
-        int RemoveCategory();
+        int removeCategory();
 
         /**
         * @brief Display all categories
@@ -301,7 +301,7 @@ class Inventory{
         *
         * @return void
         */
-        void DisplayAll();
+        void displayAll();
 
         /**
         * @brief Adds to ingredient list
@@ -311,7 +311,7 @@ class Inventory{
         *
         * @return 0 on failure and 1 on success
         */
-        int AddIngredient();
+        int addIngredient();
 
         /**
         * @brief Removes an ingredient
@@ -320,7 +320,7 @@ class Inventory{
         *
         * @return 0 on failure and 1 on success
         */
-        int RemoveIngredient();
+        int removeIngredient();
         
         /**
         * @brief Display All Ingredients
@@ -329,7 +329,7 @@ class Inventory{
         *
         * @return void
         */
-        void DisplayAllIngredients();
+        void displayAllIngredients();
         
         /**
         * @brief Menu
@@ -338,8 +338,8 @@ class Inventory{
         *
         * @return void
         */
-        void Menu();
+        void menu();
 
     private: 
-        Category * Head;
+        category * head;
 }
