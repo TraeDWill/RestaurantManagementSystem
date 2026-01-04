@@ -19,7 +19,7 @@ using namespace date;
  * I.Display();
  * @endcode
  */
-class Ingredient{
+class ingredient{
     public:
         /**
         * @brief Creates an ingredient with said characteristics
@@ -27,14 +27,14 @@ class Ingredient{
         * @param Name  The name of the ingredient.
         * @param Amount of the ingredient in lbs.
         */
-        Ingredient(char * Name, int Amount){
-            IngName = new char[strlen(Name) + 1];
-            strcpy(IngName, Name);
-            AmtInLbs = Amount;
+        ingredient(char * name, int amount){
+            ingName = new char[strlen(name) + 1];
+            strcpy(ingName, name);
+            amtInLbs = amount;
         }
 
-        ~Ingredient(){
-            delete IngName;
+        ~ingredient(){
+            delete ingName;
         }
         
         /**
@@ -44,7 +44,7 @@ class Ingredient{
         *
         * @return void
         */
-        void Display();
+        void display();
 
         /**
         * @brief Name Comparison
@@ -53,7 +53,7 @@ class Ingredient{
         *
         * @return int comparison of names
         */
-        int NameCmp(char * Name);
+        int nameCmp(char * name);
 
         /**
         * @brief Adds more lbs to weight
@@ -62,7 +62,7 @@ class Ingredient{
         *
         * @return Success int
         */
-        int Add(int add);
+        int add(int add);
 
         /**
         * @brief Deletes memory used for name
@@ -71,11 +71,11 @@ class Ingredient{
         *
         * @return void
         */
-        void Remove();
+        void remove();
         
     private:
-        char * IngName;
-        int AmtInLbs;
+        char * ingName;
+        int amtInLbs;
 }
 
 /**

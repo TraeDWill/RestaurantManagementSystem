@@ -27,7 +27,7 @@ TEST_CASE("Adds contact correctly", "[contactList]") {
     REQUIRE_FALSE(con.compName("No"));
 }
 
-TEST_CASE("Removes Contact Correctly", "[contactList]") {
+TEST_CASE("Hashes within bounds", "[contactList]") {
     contactList con;
     string yes = "yes";
     int place = con.hashFunction(yes);
