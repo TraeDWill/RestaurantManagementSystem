@@ -166,27 +166,27 @@ class category{
 };
 
 /**
- * @class CatNode
+ * @class catNode
  * @brief Node that wraps an individual category
  *
  * This node not only manages a category node, it manages the entire LLL for Ingredients
  *
  * Usage example:
  * @code
- * Ingredient I(name, amount);
+ * catNode cat(name);
  * cout << I.Display();
  * @endcode
  */
-class CatNode{
+class catNode{
     public:
         /**
         * @brief Constructs a node for category LLL 
         *
-        * @param Name Name of category being implemented
+        * @param name Name of category being implemented
         */
-        CatNode(char * Name):Category(Name){
-            Next = nullptr;
-            Head = nullptr;
+        CatNode(char * name):Category(Name){
+            next = nullptr;
+            head = nullptr;
         }
         /**
         * @brief Adds to ingredient list
@@ -195,7 +195,7 @@ class CatNode{
         *
         * @return 0 on failure and 1 on success
         */
-        int AddIngredient(char * Name);
+        int addIngredient(char * name);
 
         /**
         * @brief Removes an ingredient from the list
@@ -204,7 +204,7 @@ class CatNode{
         *
         * @return 0 on failure and 1 on success
         */
-        int RemoveIngredient(char * Ing);
+        int removeIngredient(char * ing);
 
         /**
         * @brief Finds and displays requested ingredient
@@ -213,7 +213,7 @@ class CatNode{
         *
         * @return 0 on failure and 1 on success
         */
-        int FindIngredient(char * Ing);
+        int findIngredient(char * ing);
 
         /**
         * @brief Shows full list of ingredients
@@ -222,7 +222,7 @@ class CatNode{
         *
         * @return 0 on failure and 1 on success
         */
-        int DispAllIng();
+        int dispAllIng();
 
         /**
         * @brief Sets Temp to Next, If next exists
@@ -231,7 +231,7 @@ class CatNode{
         *
         * @return Successful int
         */
-        int Next(Category *& Temp);
+        int next(category *& temp);
 
         /**
         * @brief Gets the Next from the current node
@@ -240,7 +240,7 @@ class CatNode{
         *
         * @return Next pointer
         */        
-        Category * GetNext();
+        Category * getNext();
 
         /**
         * @brief Prepares Node for deletion
@@ -249,11 +249,11 @@ class CatNode{
         *
         * @return Void
         */
-        void End();
+        void end();
     private:
-        Category Cat;
-        CatNode * Next;
-        IngNode * Head;
+        category cat;
+        catNode * next;
+        ingNode * head;
 }
 
 /**
